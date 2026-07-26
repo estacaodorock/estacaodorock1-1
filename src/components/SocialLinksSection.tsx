@@ -46,7 +46,7 @@ export const SocialLinksSection: React.FC<SocialLinksSectionProps> = ({
   const socialLinks: SocialLink[] = [
     {
       name: 'Instagram',
-      url: 'https://www.instagram.com/estacaorockfestival/',
+      url: 'https://www.instagram.com/estacaorock.oficial/',
       icon: <InstagramIcon />,
       description: 'Siga nosso Instagram para fotos e novidades'
     },

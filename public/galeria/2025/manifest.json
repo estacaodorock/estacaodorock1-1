@@ -1,25 +1,13 @@
 {
   "year": 2025,
-  "count": 303,
+  "count": 153,
   "basePath": "/galeria/2025",
   "items": [
-    {
-      "name": "estacao-001.jpg",
-      "thumb": "/galeria/2025/thumbs/estacao-001.jpg",
-      "original": "/galeria/2025/originals/estacao-001.jpg",
-      "download": "/galeria/2025/originals/estacao-001.jpg"
-    },
     {
       "name": "estacao-002.jpg",
       "thumb": "/galeria/2025/thumbs/estacao-002.jpg",
       "original": "/galeria/2025/originals/estacao-002.jpg",
       "download": "/galeria/2025/originals/estacao-002.jpg"
-    },
-    {
-      "name": "estacao-003.jpg",
-      "thumb": "/galeria/2025/thumbs/estacao-003.jpg",
-      "original": "/galeria/2025/originals/estacao-003.jpg",
-      "download": "/galeria/2025/originals/estacao-003.jpg"
     },
     {
       "name": "estacao-004.jpg",
@@ -34,112 +22,10 @@
       "download": "/galeria/2025/originals/estacao-005.jpg"
     },
     {
-      "name": "estacao-006.jpg",
-      "thumb": "/galeria/2025/thumbs/estacao-006.jpg",
-      "original": "/galeria/2025/originals/estacao-006.jpg",
-      "download": "/galeria/2025/originals/estacao-006.jpg"
-    },
-    {
-      "name": "estacao-007.jpg",
-      "thumb": "/galeria/2025/thumbs/estacao-007.jpg",
-      "original": "/galeria/2025/originals/estacao-007.jpg",
-      "download": "/galeria/2025/originals/estacao-007.jpg"
-    },
-    {
-      "name": "estacao-008.jpg",
-      "thumb": "/galeria/2025/thumbs/estacao-008.jpg",
-      "original": "/galeria/2025/originals/estacao-008.jpg",
-      "download": "/galeria/2025/originals/estacao-008.jpg"
-    },
-    {
-      "name": "estacao-009.jpg",
-      "thumb": "/galeria/2025/thumbs/estacao-009.jpg",
-      "original": "/galeria/2025/originals/estacao-009.jpg",
-      "download": "/galeria/2025/originals/estacao-009.jpg"
-    },
-    {
-      "name": "estacao-010.jpg",
-      "thumb": "/galeria/2025/thumbs/estacao-010.jpg",
-      "original": "/galeria/2025/originals/estacao-010.jpg",
-      "download": "/galeria/2025/originals/estacao-010.jpg"
-    },
-    {
-      "name": "estacao-011.jpg",
-      "thumb": "/galeria/2025/thumbs/estacao-011.jpg",
-      "original": "/galeria/2025/originals/estacao-011.jpg",
-      "download": "/galeria/2025/originals/estacao-011.jpg"
-    },
-    {
-      "name": "estacao-012.jpg",
-      "thumb": "/galeria/2025/thumbs/estacao-012.jpg",
-      "original": "/galeria/2025/originals/estacao-012.jpg",
-      "download": "/galeria/2025/originals/estacao-012.jpg"
-    },
-    {
       "name": "estacao-013.jpg",
       "thumb": "/galeria/2025/thumbs/estacao-013.jpg",
       "original": "/galeria/2025/originals/estacao-013.jpg",
       "download": "/galeria/2025/originals/estacao-013.jpg"
-    },
-    {
-      "name": "estacao-014.jpg",
-      "thumb": "/galeria/2025/thumbs/estacao-014.jpg",
-      "original": "/galeria/2025/originals/estacao-014.jpg",
-      "download": "/galeria/2025/originals/estacao-014.jpg"
-    },
-    {
-      "name": "estacao-015.jpg",
-      "thumb": "/galeria/2025/thumbs/estacao-015.jpg",
-      "original": "/galeria/2025/originals/estacao-015.jpg",
-      "download": "/galeria/2025/originals/estacao-015.jpg"
-    },
-    {
-      "name": "estacao-016.jpg",
-      "thumb": "/galeria/2025/thumbs/estacao-016.jpg",
-      "original": "/galeria/2025/originals/estacao-016.jpg",
-      "download": "/galeria/2025/originals/estacao-016.jpg"
-    },
-    {
-      "name": "estacao-017.jpg",
-      "thumb": "/galeria/2025/thumbs/estacao-017.jpg",
-      "original": "/galeria/2025/originals/estacao-017.jpg",
-      "download": "/galeria/2025/originals/estacao-017.jpg"
-    },
-    {
-      "name": "estacao-018.jpg",
-      "thumb": "/galeria/2025/thumbs/estacao-018.jpg",
-      "original": "/galeria/2025/originals/estacao-018.jpg",
-      "download": "/galeria/2025/originals/estacao-018.jpg"
-    },
-    {
-      "name": "estacao-019.jpg",
-      "thumb": "/galeria/2025/thumbs/estacao-019.jpg",
-      "original": "/galeria/2025/originals/estacao-019.jpg",
-      "download": "/galeria/2025/originals/estacao-019.jpg"
-    },
-    {
-      "name": "estacao-020.jpg",
-      "thumb": "/galeria/2025/thumbs/estacao-020.jpg",
-      "original": "/galeria/2025/originals/estacao-020.jpg",
-      "download": "/galeria/2025/originals/estacao-020.jpg"
-    },
-    {
-      "name": "estacao-021.jpg",
-      "thumb": "/galeria/2025/thumbs/estacao-021.jpg",
-      "original": "/galeria/2025/originals/estacao-021.jpg",
-      "download": "/galeria/2025/originals/estacao-021.jpg"
-    },
-    {
-      "name": "estacao-022.jpg",
-      "thumb": "/galeria/2025/thumbs/estacao-022.jpg",
-      "original": "/galeria/2025/originals/estacao-022.jpg",
-      "download": "/galeria/2025/originals/estacao-022.jpg"
-    },
-    {
-      "name": "estacao-023.jpg",
-      "thumb": "/galeria/2025/thumbs/estacao-023.jpg",
-      "original": "/galeria/2025/originals/estacao-023.jpg",
-      "download": "/galeria/2025/originals/estacao-023.jpg"
     },
     {
       "name": "estacao-024.jpg",
@@ -148,124 +34,16 @@
       "download": "/galeria/2025/originals/estacao-024.jpg"
     },
     {
-      "name": "estacao-025.jpg",
-      "thumb": "/galeria/2025/thumbs/estacao-025.jpg",
-      "original": "/galeria/2025/originals/estacao-025.jpg",
-      "download": "/galeria/2025/originals/estacao-025.jpg"
-    },
-    {
-      "name": "estacao-026.jpg",
-      "thumb": "/galeria/2025/thumbs/estacao-026.jpg",
-      "original": "/galeria/2025/originals/estacao-026.jpg",
-      "download": "/galeria/2025/originals/estacao-026.jpg"
-    },
-    {
       "name": "estacao-027.jpg",
       "thumb": "/galeria/2025/thumbs/estacao-027.jpg",
       "original": "/galeria/2025/originals/estacao-027.jpg",
       "download": "/galeria/2025/originals/estacao-027.jpg"
     },
     {
-      "name": "estacao-028.jpg",
-      "thumb": "/galeria/2025/thumbs/estacao-028.jpg",
-      "original": "/galeria/2025/originals/estacao-028.jpg",
-      "download": "/galeria/2025/originals/estacao-028.jpg"
-    },
-    {
-      "name": "estacao-029.jpg",
-      "thumb": "/galeria/2025/thumbs/estacao-029.jpg",
-      "original": "/galeria/2025/originals/estacao-029.jpg",
-      "download": "/galeria/2025/originals/estacao-029.jpg"
-    },
-    {
-      "name": "estacao-030.jpg",
-      "thumb": "/galeria/2025/thumbs/estacao-030.jpg",
-      "original": "/galeria/2025/originals/estacao-030.jpg",
-      "download": "/galeria/2025/originals/estacao-030.jpg"
-    },
-    {
-      "name": "estacao-031.jpg",
-      "thumb": "/galeria/2025/thumbs/estacao-031.jpg",
-      "original": "/galeria/2025/originals/estacao-031.jpg",
-      "download": "/galeria/2025/originals/estacao-031.jpg"
-    },
-    {
-      "name": "estacao-032.jpg",
-      "thumb": "/galeria/2025/thumbs/estacao-032.jpg",
-      "original": "/galeria/2025/originals/estacao-032.jpg",
-      "download": "/galeria/2025/originals/estacao-032.jpg"
-    },
-    {
-      "name": "estacao-033.jpg",
-      "thumb": "/galeria/2025/thumbs/estacao-033.jpg",
-      "original": "/galeria/2025/originals/estacao-033.jpg",
-      "download": "/galeria/2025/originals/estacao-033.jpg"
-    },
-    {
-      "name": "estacao-034.jpg",
-      "thumb": "/galeria/2025/thumbs/estacao-034.jpg",
-      "original": "/galeria/2025/originals/estacao-034.jpg",
-      "download": "/galeria/2025/originals/estacao-034.jpg"
-    },
-    {
-      "name": "estacao-035.jpg",
-      "thumb": "/galeria/2025/thumbs/estacao-035.jpg",
-      "original": "/galeria/2025/originals/estacao-035.jpg",
-      "download": "/galeria/2025/originals/estacao-035.jpg"
-    },
-    {
-      "name": "estacao-036.jpg",
-      "thumb": "/galeria/2025/thumbs/estacao-036.jpg",
-      "original": "/galeria/2025/originals/estacao-036.jpg",
-      "download": "/galeria/2025/originals/estacao-036.jpg"
-    },
-    {
-      "name": "estacao-037.jpg",
-      "thumb": "/galeria/2025/thumbs/estacao-037.jpg",
-      "original": "/galeria/2025/originals/estacao-037.jpg",
-      "download": "/galeria/2025/originals/estacao-037.jpg"
-    },
-    {
       "name": "estacao-038.jpg",
       "thumb": "/galeria/2025/thumbs/estacao-038.jpg",
       "original": "/galeria/2025/originals/estacao-038.jpg",
       "download": "/galeria/2025/originals/estacao-038.jpg"
-    },
-    {
-      "name": "estacao-039.jpg",
-      "thumb": "/galeria/2025/thumbs/estacao-039.jpg",
-      "original": "/galeria/2025/originals/estacao-039.jpg",
-      "download": "/galeria/2025/originals/estacao-039.jpg"
-    },
-    {
-      "name": "estacao-040.jpg",
-      "thumb": "/galeria/2025/thumbs/estacao-040.jpg",
-      "original": "/galeria/2025/originals/estacao-040.jpg",
-      "download": "/galeria/2025/originals/estacao-040.jpg"
-    },
-    {
-      "name": "estacao-041.jpg",
-      "thumb": "/galeria/2025/thumbs/estacao-041.jpg",
-      "original": "/galeria/2025/originals/estacao-041.jpg",
-      "download": "/galeria/2025/originals/estacao-041.jpg"
-    },
-    {
-      "name": "estacao-042.jpg",
-      "thumb": "/galeria/2025/thumbs/estacao-042.jpg",
-      "original": "/galeria/2025/originals/estacao-042.jpg",
-      "download": "/galeria/2025/originals/estacao-042.jpg"
-    },
-    {
-      "name": "estacao-043.jpg",
-      "thumb": "/galeria/2025/thumbs/estacao-043.jpg",
-      "original": "/galeria/2025/originals/estacao-043.jpg",
-      "download": "/galeria/2025/originals/estacao-043.jpg"
-    },
-    {
-      "name": "estacao-044.jpg",
-      "thumb": "/galeria/2025/thumbs/estacao-044.jpg",
-      "original": "/galeria/2025/originals/estacao-044.jpg",
-      "download": "/galeria/2025/originals/estacao-044.jpg"
     },
     {
       "name": "estacao-045.jpg",
@@ -292,18 +70,6 @@
       "download": "/galeria/2025/originals/estacao-048.jpg"
     },
     {
-      "name": "estacao-049.jpg",
-      "thumb": "/galeria/2025/thumbs/estacao-049.jpg",
-      "original": "/galeria/2025/originals/estacao-049.jpg",
-      "download": "/galeria/2025/originals/estacao-049.jpg"
-    },
-    {
-      "name": "estacao-050.jpg",
-      "thumb": "/galeria/2025/thumbs/estacao-050.jpg",
-      "original": "/galeria/2025/originals/estacao-050.jpg",
-      "download": "/galeria/2025/originals/estacao-050.jpg"
-    },
-    {
       "name": "estacao-051.jpg",
       "thumb": "/galeria/2025/thumbs/estacao-051.jpg",
       "original": "/galeria/2025/originals/estacao-051.jpg",
@@ -314,30 +80,6 @@
       "thumb": "/galeria/2025/thumbs/estacao-052.jpg",
       "original": "/galeria/2025/originals/estacao-052.jpg",
       "download": "/galeria/2025/originals/estacao-052.jpg"
-    },
-    {
-      "name": "estacao-053.jpg",
-      "thumb": "/galeria/2025/thumbs/estacao-053.jpg",
-      "original": "/galeria/2025/originals/estacao-053.jpg",
-      "download": "/galeria/2025/originals/estacao-053.jpg"
-    },
-    {
-      "name": "estacao-054.jpg",
-      "thumb": "/galeria/2025/thumbs/estacao-054.jpg",
-      "original": "/galeria/2025/originals/estacao-054.jpg",
-      "download": "/galeria/2025/originals/estacao-054.jpg"
-    },
-    {
-      "name": "estacao-055.jpg",
-      "thumb": "/galeria/2025/thumbs/estacao-055.jpg",
-      "original": "/galeria/2025/originals/estacao-055.jpg",
-      "download": "/galeria/2025/originals/estacao-055.jpg"
-    },
-    {
-      "name": "estacao-056.jpg",
-      "thumb": "/galeria/2025/thumbs/estacao-056.jpg",
-      "original": "/galeria/2025/originals/estacao-056.jpg",
-      "download": "/galeria/2025/originals/estacao-056.jpg"
     },
     {
       "name": "estacao-057.jpg",
@@ -412,12 +154,6 @@
       "download": "/galeria/2025/originals/estacao-068.jpg"
     },
     {
-      "name": "estacao-069.jpg",
-      "thumb": "/galeria/2025/thumbs/estacao-069.jpg",
-      "original": "/galeria/2025/originals/estacao-069.jpg",
-      "download": "/galeria/2025/originals/estacao-069.jpg"
-    },
-    {
       "name": "estacao-070.jpg",
       "thumb": "/galeria/2025/thumbs/estacao-070.jpg",
       "original": "/galeria/2025/originals/estacao-070.jpg",
@@ -434,12 +170,6 @@
       "thumb": "/galeria/2025/thumbs/estacao-072.jpg",
       "original": "/galeria/2025/originals/estacao-072.jpg",
       "download": "/galeria/2025/originals/estacao-072.jpg"
-    },
-    {
-      "name": "estacao-073.jpg",
-      "thumb": "/galeria/2025/thumbs/estacao-073.jpg",
-      "original": "/galeria/2025/originals/estacao-073.jpg",
-      "download": "/galeria/2025/originals/estacao-073.jpg"
     },
     {
       "name": "estacao-074.jpg",
@@ -460,112 +190,16 @@
       "download": "/galeria/2025/originals/estacao-076.jpg"
     },
     {
-      "name": "estacao-077.jpg",
-      "thumb": "/galeria/2025/thumbs/estacao-077.jpg",
-      "original": "/galeria/2025/originals/estacao-077.jpg",
-      "download": "/galeria/2025/originals/estacao-077.jpg"
-    },
-    {
-      "name": "estacao-078.jpg",
-      "thumb": "/galeria/2025/thumbs/estacao-078.jpg",
-      "original": "/galeria/2025/originals/estacao-078.jpg",
-      "download": "/galeria/2025/originals/estacao-078.jpg"
-    },
-    {
-      "name": "estacao-079.jpg",
-      "thumb": "/galeria/2025/thumbs/estacao-079.jpg",
-      "original": "/galeria/2025/originals/estacao-079.jpg",
-      "download": "/galeria/2025/originals/estacao-079.jpg"
-    },
-    {
       "name": "estacao-080.jpg",
       "thumb": "/galeria/2025/thumbs/estacao-080.jpg",
       "original": "/galeria/2025/originals/estacao-080.jpg",
       "download": "/galeria/2025/originals/estacao-080.jpg"
     },
     {
-      "name": "estacao-081.jpg",
-      "thumb": "/galeria/2025/thumbs/estacao-081.jpg",
-      "original": "/galeria/2025/originals/estacao-081.jpg",
-      "download": "/galeria/2025/originals/estacao-081.jpg"
-    },
-    {
-      "name": "estacao-082.jpg",
-      "thumb": "/galeria/2025/thumbs/estacao-082.jpg",
-      "original": "/galeria/2025/originals/estacao-082.jpg",
-      "download": "/galeria/2025/originals/estacao-082.jpg"
-    },
-    {
-      "name": "estacao-083.jpg",
-      "thumb": "/galeria/2025/thumbs/estacao-083.jpg",
-      "original": "/galeria/2025/originals/estacao-083.jpg",
-      "download": "/galeria/2025/originals/estacao-083.jpg"
-    },
-    {
       "name": "estacao-084.jpg",
       "thumb": "/galeria/2025/thumbs/estacao-084.jpg",
       "original": "/galeria/2025/originals/estacao-084.jpg",
       "download": "/galeria/2025/originals/estacao-084.jpg"
-    },
-    {
-      "name": "estacao-085.jpg",
-      "thumb": "/galeria/2025/thumbs/estacao-085.jpg",
-      "original": "/galeria/2025/originals/estacao-085.jpg",
-      "download": "/galeria/2025/originals/estacao-085.jpg"
-    },
-    {
-      "name": "estacao-086.jpg",
-      "thumb": "/galeria/2025/thumbs/estacao-086.jpg",
-      "original": "/galeria/2025/originals/estacao-086.jpg",
-      "download": "/galeria/2025/originals/estacao-086.jpg"
-    },
-    {
-      "name": "estacao-087.jpg",
-      "thumb": "/galeria/2025/thumbs/estacao-087.jpg",
-      "original": "/galeria/2025/originals/estacao-087.jpg",
-      "download": "/galeria/2025/originals/estacao-087.jpg"
-    },
-    {
-      "name": "estacao-088.jpg",
-      "thumb": "/galeria/2025/thumbs/estacao-088.jpg",
-      "original": "/galeria/2025/originals/estacao-088.jpg",
-      "download": "/galeria/2025/originals/estacao-088.jpg"
-    },
-    {
-      "name": "estacao-089.jpg",
-      "thumb": "/galeria/2025/thumbs/estacao-089.jpg",
-      "original": "/galeria/2025/originals/estacao-089.jpg",
-      "download": "/galeria/2025/originals/estacao-089.jpg"
-    },
-    {
-      "name": "estacao-090.jpg",
-      "thumb": "/galeria/2025/thumbs/estacao-090.jpg",
-      "original": "/galeria/2025/originals/estacao-090.jpg",
-      "download": "/galeria/2025/originals/estacao-090.jpg"
-    },
-    {
-      "name": "estacao-091.jpg",
-      "thumb": "/galeria/2025/thumbs/estacao-091.jpg",
-      "original": "/galeria/2025/originals/estacao-091.jpg",
-      "download": "/galeria/2025/originals/estacao-091.jpg"
-    },
-    {
-      "name": "estacao-092.jpg",
-      "thumb": "/galeria/2025/thumbs/estacao-092.jpg",
-      "original": "/galeria/2025/originals/estacao-092.jpg",
-      "download": "/galeria/2025/originals/estacao-092.jpg"
-    },
-    {
-      "name": "estacao-093.jpg",
-      "thumb": "/galeria/2025/thumbs/estacao-093.jpg",
-      "original": "/galeria/2025/originals/estacao-093.jpg",
-      "download": "/galeria/2025/originals/estacao-093.jpg"
-    },
-    {
-      "name": "estacao-094.jpg",
-      "thumb": "/galeria/2025/thumbs/estacao-094.jpg",
-      "original": "/galeria/2025/originals/estacao-094.jpg",
-      "download": "/galeria/2025/originals/estacao-094.jpg"
     },
     {
       "name": "estacao-095.jpg",
@@ -604,40 +238,10 @@
       "download": "/galeria/2025/originals/estacao-100.jpg"
     },
     {
-      "name": "estacao-101.jpg",
-      "thumb": "/galeria/2025/thumbs/estacao-101.jpg",
-      "original": "/galeria/2025/originals/estacao-101.jpg",
-      "download": "/galeria/2025/originals/estacao-101.jpg"
-    },
-    {
-      "name": "estacao-102.jpg",
-      "thumb": "/galeria/2025/thumbs/estacao-102.jpg",
-      "original": "/galeria/2025/originals/estacao-102.jpg",
-      "download": "/galeria/2025/originals/estacao-102.jpg"
-    },
-    {
       "name": "estacao-103.jpg",
       "thumb": "/galeria/2025/thumbs/estacao-103.jpg",
       "original": "/galeria/2025/originals/estacao-103.jpg",
       "download": "/galeria/2025/originals/estacao-103.jpg"
-    },
-    {
-      "name": "estacao-104.jpg",
-      "thumb": "/galeria/2025/thumbs/estacao-104.jpg",
-      "original": "/galeria/2025/originals/estacao-104.jpg",
-      "download": "/galeria/2025/originals/estacao-104.jpg"
-    },
-    {
-      "name": "estacao-105.jpg",
-      "thumb": "/galeria/2025/thumbs/estacao-105.jpg",
-      "original": "/galeria/2025/originals/estacao-105.jpg",
-      "download": "/galeria/2025/originals/estacao-105.jpg"
-    },
-    {
-      "name": "estacao-106.jpg",
-      "thumb": "/galeria/2025/thumbs/estacao-106.jpg",
-      "original": "/galeria/2025/originals/estacao-106.jpg",
-      "download": "/galeria/2025/originals/estacao-106.jpg"
     },
     {
       "name": "estacao-107.jpg",
@@ -658,24 +262,6 @@
       "download": "/galeria/2025/originals/estacao-109.jpg"
     },
     {
-      "name": "estacao-110.jpg",
-      "thumb": "/galeria/2025/thumbs/estacao-110.jpg",
-      "original": "/galeria/2025/originals/estacao-110.jpg",
-      "download": "/galeria/2025/originals/estacao-110.jpg"
-    },
-    {
-      "name": "estacao-111.jpg",
-      "thumb": "/galeria/2025/thumbs/estacao-111.jpg",
-      "original": "/galeria/2025/originals/estacao-111.jpg",
-      "download": "/galeria/2025/originals/estacao-111.jpg"
-    },
-    {
-      "name": "estacao-112.jpg",
-      "thumb": "/galeria/2025/thumbs/estacao-112.jpg",
-      "original": "/galeria/2025/originals/estacao-112.jpg",
-      "download": "/galeria/2025/originals/estacao-112.jpg"
-    },
-    {
       "name": "estacao-113.jpg",
       "thumb": "/galeria/2025/thumbs/estacao-113.jpg",
       "original": "/galeria/2025/originals/estacao-113.jpg",
@@ -686,18 +272,6 @@
       "thumb": "/galeria/2025/thumbs/estacao-114.jpg",
       "original": "/galeria/2025/originals/estacao-114.jpg",
       "download": "/galeria/2025/originals/estacao-114.jpg"
-    },
-    {
-      "name": "estacao-115.jpg",
-      "thumb": "/galeria/2025/thumbs/estacao-115.jpg",
-      "original": "/galeria/2025/originals/estacao-115.jpg",
-      "download": "/galeria/2025/originals/estacao-115.jpg"
-    },
-    {
-      "name": "estacao-116.jpg",
-      "thumb": "/galeria/2025/thumbs/estacao-116.jpg",
-      "original": "/galeria/2025/originals/estacao-116.jpg",
-      "download": "/galeria/2025/originals/estacao-116.jpg"
     },
     {
       "name": "estacao-117.jpg",
@@ -712,46 +286,10 @@
       "download": "/galeria/2025/originals/estacao-118.jpg"
     },
     {
-      "name": "estacao-119.jpg",
-      "thumb": "/galeria/2025/thumbs/estacao-119.jpg",
-      "original": "/galeria/2025/originals/estacao-119.jpg",
-      "download": "/galeria/2025/originals/estacao-119.jpg"
-    },
-    {
-      "name": "estacao-120.jpg",
-      "thumb": "/galeria/2025/thumbs/estacao-120.jpg",
-      "original": "/galeria/2025/originals/estacao-120.jpg",
-      "download": "/galeria/2025/originals/estacao-120.jpg"
-    },
-    {
-      "name": "estacao-121.jpg",
-      "thumb": "/galeria/2025/thumbs/estacao-121.jpg",
-      "original": "/galeria/2025/originals/estacao-121.jpg",
-      "download": "/galeria/2025/originals/estacao-121.jpg"
-    },
-    {
-      "name": "estacao-122.jpg",
-      "thumb": "/galeria/2025/thumbs/estacao-122.jpg",
-      "original": "/galeria/2025/originals/estacao-122.jpg",
-      "download": "/galeria/2025/originals/estacao-122.jpg"
-    },
-    {
-      "name": "estacao-123.jpg",
-      "thumb": "/galeria/2025/thumbs/estacao-123.jpg",
-      "original": "/galeria/2025/originals/estacao-123.jpg",
-      "download": "/galeria/2025/originals/estacao-123.jpg"
-    },
-    {
       "name": "estacao-124.jpg",
       "thumb": "/galeria/2025/thumbs/estacao-124.jpg",
       "original": "/galeria/2025/originals/estacao-124.jpg",
       "download": "/galeria/2025/originals/estacao-124.jpg"
-    },
-    {
-      "name": "estacao-125.jpg",
-      "thumb": "/galeria/2025/thumbs/estacao-125.jpg",
-      "original": "/galeria/2025/originals/estacao-125.jpg",
-      "download": "/galeria/2025/originals/estacao-125.jpg"
     },
     {
       "name": "estacao-126.jpg",
@@ -766,76 +304,16 @@
       "download": "/galeria/2025/originals/estacao-127.jpg"
     },
     {
-      "name": "estacao-128.jpg",
-      "thumb": "/galeria/2025/thumbs/estacao-128.jpg",
-      "original": "/galeria/2025/originals/estacao-128.jpg",
-      "download": "/galeria/2025/originals/estacao-128.jpg"
-    },
-    {
       "name": "estacao-129.jpg",
       "thumb": "/galeria/2025/thumbs/estacao-129.jpg",
       "original": "/galeria/2025/originals/estacao-129.jpg",
       "download": "/galeria/2025/originals/estacao-129.jpg"
     },
     {
-      "name": "estacao-130.jpg",
-      "thumb": "/galeria/2025/thumbs/estacao-130.jpg",
-      "original": "/galeria/2025/originals/estacao-130.jpg",
-      "download": "/galeria/2025/originals/estacao-130.jpg"
-    },
-    {
-      "name": "estacao-131.jpg",
-      "thumb": "/galeria/2025/thumbs/estacao-131.jpg",
-      "original": "/galeria/2025/originals/estacao-131.jpg",
-      "download": "/galeria/2025/originals/estacao-131.jpg"
-    },
-    {
-      "name": "estacao-132.jpg",
-      "thumb": "/galeria/2025/thumbs/estacao-132.jpg",
-      "original": "/galeria/2025/originals/estacao-132.jpg",
-      "download": "/galeria/2025/originals/estacao-132.jpg"
-    },
-    {
-      "name": "estacao-133.jpg",
-      "thumb": "/galeria/2025/thumbs/estacao-133.jpg",
-      "original": "/galeria/2025/originals/estacao-133.jpg",
-      "download": "/galeria/2025/originals/estacao-133.jpg"
-    },
-    {
       "name": "estacao-134.jpg",
       "thumb": "/galeria/2025/thumbs/estacao-134.jpg",
       "original": "/galeria/2025/originals/estacao-134.jpg",
       "download": "/galeria/2025/originals/estacao-134.jpg"
-    },
-    {
-      "name": "estacao-135.jpg",
-      "thumb": "/galeria/2025/thumbs/estacao-135.jpg",
-      "original": "/galeria/2025/originals/estacao-135.jpg",
-      "download": "/galeria/2025/originals/estacao-135.jpg"
-    },
-    {
-      "name": "estacao-136.jpg",
-      "thumb": "/galeria/2025/thumbs/estacao-136.jpg",
-      "original": "/galeria/2025/originals/estacao-136.jpg",
-      "download": "/galeria/2025/originals/estacao-136.jpg"
-    },
-    {
-      "name": "estacao-137.jpg",
-      "thumb": "/galeria/2025/thumbs/estacao-137.jpg",
-      "original": "/galeria/2025/originals/estacao-137.jpg",
-      "download": "/galeria/2025/originals/estacao-137.jpg"
-    },
-    {
-      "name": "estacao-138.jpg",
-      "thumb": "/galeria/2025/thumbs/estacao-138.jpg",
-      "original": "/galeria/2025/originals/estacao-138.jpg",
-      "download": "/galeria/2025/originals/estacao-138.jpg"
-    },
-    {
-      "name": "estacao-139.jpg",
-      "thumb": "/galeria/2025/thumbs/estacao-139.jpg",
-      "original": "/galeria/2025/originals/estacao-139.jpg",
-      "download": "/galeria/2025/originals/estacao-139.jpg"
     },
     {
       "name": "estacao-140.jpg",
@@ -850,34 +328,10 @@
       "download": "/galeria/2025/originals/estacao-141.jpg"
     },
     {
-      "name": "estacao-142.jpg",
-      "thumb": "/galeria/2025/thumbs/estacao-142.jpg",
-      "original": "/galeria/2025/originals/estacao-142.jpg",
-      "download": "/galeria/2025/originals/estacao-142.jpg"
-    },
-    {
-      "name": "estacao-143.jpg",
-      "thumb": "/galeria/2025/thumbs/estacao-143.jpg",
-      "original": "/galeria/2025/originals/estacao-143.jpg",
-      "download": "/galeria/2025/originals/estacao-143.jpg"
-    },
-    {
       "name": "estacao-144.jpg",
       "thumb": "/galeria/2025/thumbs/estacao-144.jpg",
       "original": "/galeria/2025/originals/estacao-144.jpg",
       "download": "/galeria/2025/originals/estacao-144.jpg"
-    },
-    {
-      "name": "estacao-145.jpg",
-      "thumb": "/galeria/2025/thumbs/estacao-145.jpg",
-      "original": "/galeria/2025/originals/estacao-145.jpg",
-      "download": "/galeria/2025/originals/estacao-145.jpg"
-    },
-    {
-      "name": "estacao-146.jpg",
-      "thumb": "/galeria/2025/thumbs/estacao-146.jpg",
-      "original": "/galeria/2025/originals/estacao-146.jpg",
-      "download": "/galeria/2025/originals/estacao-146.jpg"
     },
     {
       "name": "estacao-147.jpg",
@@ -886,58 +340,10 @@
       "download": "/galeria/2025/originals/estacao-147.jpg"
     },
     {
-      "name": "estacao-148.jpg",
-      "thumb": "/galeria/2025/thumbs/estacao-148.jpg",
-      "original": "/galeria/2025/originals/estacao-148.jpg",
-      "download": "/galeria/2025/originals/estacao-148.jpg"
-    },
-    {
-      "name": "estacao-149.jpg",
-      "thumb": "/galeria/2025/thumbs/estacao-149.jpg",
-      "original": "/galeria/2025/originals/estacao-149.jpg",
-      "download": "/galeria/2025/originals/estacao-149.jpg"
-    },
-    {
-      "name": "estacao-150.jpg",
-      "thumb": "/galeria/2025/thumbs/estacao-150.jpg",
-      "original": "/galeria/2025/originals/estacao-150.jpg",
-      "download": "/galeria/2025/originals/estacao-150.jpg"
-    },
-    {
-      "name": "estacao-151.jpg",
-      "thumb": "/galeria/2025/thumbs/estacao-151.jpg",
-      "original": "/galeria/2025/originals/estacao-151.jpg",
-      "download": "/galeria/2025/originals/estacao-151.jpg"
-    },
-    {
       "name": "estacao-152.jpg",
       "thumb": "/galeria/2025/thumbs/estacao-152.jpg",
       "original": "/galeria/2025/originals/estacao-152.jpg",
       "download": "/galeria/2025/originals/estacao-152.jpg"
-    },
-    {
-      "name": "estacao-153.jpg",
-      "thumb": "/galeria/2025/thumbs/estacao-153.jpg",
-      "original": "/galeria/2025/originals/estacao-153.jpg",
-      "download": "/galeria/2025/originals/estacao-153.jpg"
-    },
-    {
-      "name": "estacao-154.jpg",
-      "thumb": "/galeria/2025/thumbs/estacao-154.jpg",
-      "original": "/galeria/2025/originals/estacao-154.jpg",
-      "download": "/galeria/2025/originals/estacao-154.jpg"
-    },
-    {
-      "name": "estacao-155.jpg",
-      "thumb": "/galeria/2025/thumbs/estacao-155.jpg",
-      "original": "/galeria/2025/originals/estacao-155.jpg",
-      "download": "/galeria/2025/originals/estacao-155.jpg"
-    },
-    {
-      "name": "estacao-156.jpg",
-      "thumb": "/galeria/2025/thumbs/estacao-156.jpg",
-      "original": "/galeria/2025/originals/estacao-156.jpg",
-      "download": "/galeria/2025/originals/estacao-156.jpg"
     },
     {
       "name": "estacao-157.jpg",
@@ -946,64 +352,10 @@
       "download": "/galeria/2025/originals/estacao-157.jpg"
     },
     {
-      "name": "estacao-158.jpg",
-      "thumb": "/galeria/2025/thumbs/estacao-158.jpg",
-      "original": "/galeria/2025/originals/estacao-158.jpg",
-      "download": "/galeria/2025/originals/estacao-158.jpg"
-    },
-    {
-      "name": "estacao-159.jpg",
-      "thumb": "/galeria/2025/thumbs/estacao-159.jpg",
-      "original": "/galeria/2025/originals/estacao-159.jpg",
-      "download": "/galeria/2025/originals/estacao-159.jpg"
-    },
-    {
-      "name": "estacao-160.jpg",
-      "thumb": "/galeria/2025/thumbs/estacao-160.jpg",
-      "original": "/galeria/2025/originals/estacao-160.jpg",
-      "download": "/galeria/2025/originals/estacao-160.jpg"
-    },
-    {
-      "name": "estacao-161.jpg",
-      "thumb": "/galeria/2025/thumbs/estacao-161.jpg",
-      "original": "/galeria/2025/originals/estacao-161.jpg",
-      "download": "/galeria/2025/originals/estacao-161.jpg"
-    },
-    {
-      "name": "estacao-162.jpg",
-      "thumb": "/galeria/2025/thumbs/estacao-162.jpg",
-      "original": "/galeria/2025/originals/estacao-162.jpg",
-      "download": "/galeria/2025/originals/estacao-162.jpg"
-    },
-    {
-      "name": "estacao-163.jpg",
-      "thumb": "/galeria/2025/thumbs/estacao-163.jpg",
-      "original": "/galeria/2025/originals/estacao-163.jpg",
-      "download": "/galeria/2025/originals/estacao-163.jpg"
-    },
-    {
-      "name": "estacao-164.jpg",
-      "thumb": "/galeria/2025/thumbs/estacao-164.jpg",
-      "original": "/galeria/2025/originals/estacao-164.jpg",
-      "download": "/galeria/2025/originals/estacao-164.jpg"
-    },
-    {
       "name": "estacao-165.jpg",
       "thumb": "/galeria/2025/thumbs/estacao-165.jpg",
       "original": "/galeria/2025/originals/estacao-165.jpg",
       "download": "/galeria/2025/originals/estacao-165.jpg"
-    },
-    {
-      "name": "estacao-166.jpg",
-      "thumb": "/galeria/2025/thumbs/estacao-166.jpg",
-      "original": "/galeria/2025/originals/estacao-166.jpg",
-      "download": "/galeria/2025/originals/estacao-166.jpg"
-    },
-    {
-      "name": "estacao-167.jpg",
-      "thumb": "/galeria/2025/thumbs/estacao-167.jpg",
-      "original": "/galeria/2025/originals/estacao-167.jpg",
-      "download": "/galeria/2025/originals/estacao-167.jpg"
     },
     {
       "name": "estacao-168.jpg",
@@ -1024,64 +376,16 @@
       "download": "/galeria/2025/originals/estacao-170.jpg"
     },
     {
-      "name": "estacao-171.jpg",
-      "thumb": "/galeria/2025/thumbs/estacao-171.jpg",
-      "original": "/galeria/2025/originals/estacao-171.jpg",
-      "download": "/galeria/2025/originals/estacao-171.jpg"
-    },
-    {
-      "name": "estacao-172.jpg",
-      "thumb": "/galeria/2025/thumbs/estacao-172.jpg",
-      "original": "/galeria/2025/originals/estacao-172.jpg",
-      "download": "/galeria/2025/originals/estacao-172.jpg"
-    },
-    {
       "name": "estacao-173.jpg",
       "thumb": "/galeria/2025/thumbs/estacao-173.jpg",
       "original": "/galeria/2025/originals/estacao-173.jpg",
       "download": "/galeria/2025/originals/estacao-173.jpg"
     },
     {
-      "name": "estacao-174.jpg",
-      "thumb": "/galeria/2025/thumbs/estacao-174.jpg",
-      "original": "/galeria/2025/originals/estacao-174.jpg",
-      "download": "/galeria/2025/originals/estacao-174.jpg"
-    },
-    {
-      "name": "estacao-175.jpg",
-      "thumb": "/galeria/2025/thumbs/estacao-175.jpg",
-      "original": "/galeria/2025/originals/estacao-175.jpg",
-      "download": "/galeria/2025/originals/estacao-175.jpg"
-    },
-    {
-      "name": "estacao-176.jpg",
-      "thumb": "/galeria/2025/thumbs/estacao-176.jpg",
-      "original": "/galeria/2025/originals/estacao-176.jpg",
-      "download": "/galeria/2025/originals/estacao-176.jpg"
-    },
-    {
-      "name": "estacao-177.jpg",
-      "thumb": "/galeria/2025/thumbs/estacao-177.jpg",
-      "original": "/galeria/2025/originals/estacao-177.jpg",
-      "download": "/galeria/2025/originals/estacao-177.jpg"
-    },
-    {
-      "name": "estacao-178.jpg",
-      "thumb": "/galeria/2025/thumbs/estacao-178.jpg",
-      "original": "/galeria/2025/originals/estacao-178.jpg",
-      "download": "/galeria/2025/originals/estacao-178.jpg"
-    },
-    {
       "name": "estacao-179.jpg",
       "thumb": "/galeria/2025/thumbs/estacao-179.jpg",
       "original": "/galeria/2025/originals/estacao-179.jpg",
       "download": "/galeria/2025/originals/estacao-179.jpg"
-    },
-    {
-      "name": "estacao-180.jpg",
-      "thumb": "/galeria/2025/thumbs/estacao-180.jpg",
-      "original": "/galeria/2025/originals/estacao-180.jpg",
-      "download": "/galeria/2025/originals/estacao-180.jpg"
     },
     {
       "name": "estacao-181.jpg",
@@ -1108,34 +412,10 @@
       "download": "/galeria/2025/originals/estacao-184.jpg"
     },
     {
-      "name": "estacao-185.jpg",
-      "thumb": "/galeria/2025/thumbs/estacao-185.jpg",
-      "original": "/galeria/2025/originals/estacao-185.jpg",
-      "download": "/galeria/2025/originals/estacao-185.jpg"
-    },
-    {
       "name": "estacao-186.jpg",
       "thumb": "/galeria/2025/thumbs/estacao-186.jpg",
       "original": "/galeria/2025/originals/estacao-186.jpg",
       "download": "/galeria/2025/originals/estacao-186.jpg"
-    },
-    {
-      "name": "estacao-187.jpg",
-      "thumb": "/galeria/2025/thumbs/estacao-187.jpg",
-      "original": "/galeria/2025/originals/estacao-187.jpg",
-      "download": "/galeria/2025/originals/estacao-187.jpg"
-    },
-    {
-      "name": "estacao-188.jpg",
-      "thumb": "/galeria/2025/thumbs/estacao-188.jpg",
-      "original": "/galeria/2025/originals/estacao-188.jpg",
-      "download": "/galeria/2025/originals/estacao-188.jpg"
-    },
-    {
-      "name": "estacao-189.jpg",
-      "thumb": "/galeria/2025/thumbs/estacao-189.jpg",
-      "original": "/galeria/2025/originals/estacao-189.jpg",
-      "download": "/galeria/2025/originals/estacao-189.jpg"
     },
     {
       "name": "estacao-190.jpg",
@@ -1156,12 +436,6 @@
       "download": "/galeria/2025/originals/estacao-192.jpg"
     },
     {
-      "name": "estacao-193.jpg",
-      "thumb": "/galeria/2025/thumbs/estacao-193.jpg",
-      "original": "/galeria/2025/originals/estacao-193.jpg",
-      "download": "/galeria/2025/originals/estacao-193.jpg"
-    },
-    {
       "name": "estacao-194.jpg",
       "thumb": "/galeria/2025/thumbs/estacao-194.jpg",
       "original": "/galeria/2025/originals/estacao-194.jpg",
@@ -1174,46 +448,16 @@
       "download": "/galeria/2025/originals/estacao-195.jpg"
     },
     {
-      "name": "estacao-196.jpg",
-      "thumb": "/galeria/2025/thumbs/estacao-196.jpg",
-      "original": "/galeria/2025/originals/estacao-196.jpg",
-      "download": "/galeria/2025/originals/estacao-196.jpg"
-    },
-    {
-      "name": "estacao-197.jpg",
-      "thumb": "/galeria/2025/thumbs/estacao-197.jpg",
-      "original": "/galeria/2025/originals/estacao-197.jpg",
-      "download": "/galeria/2025/originals/estacao-197.jpg"
-    },
-    {
       "name": "estacao-198.jpg",
       "thumb": "/galeria/2025/thumbs/estacao-198.jpg",
       "original": "/galeria/2025/originals/estacao-198.jpg",
       "download": "/galeria/2025/originals/estacao-198.jpg"
     },
     {
-      "name": "estacao-199.jpg",
-      "thumb": "/galeria/2025/thumbs/estacao-199.jpg",
-      "original": "/galeria/2025/originals/estacao-199.jpg",
-      "download": "/galeria/2025/originals/estacao-199.jpg"
-    },
-    {
-      "name": "estacao-200.jpg",
-      "thumb": "/galeria/2025/thumbs/estacao-200.jpg",
-      "original": "/galeria/2025/originals/estacao-200.jpg",
-      "download": "/galeria/2025/originals/estacao-200.jpg"
-    },
-    {
       "name": "estacao-201.jpg",
       "thumb": "/galeria/2025/thumbs/estacao-201.jpg",
       "original": "/galeria/2025/originals/estacao-201.jpg",
       "download": "/galeria/2025/originals/estacao-201.jpg"
-    },
-    {
-      "name": "estacao-202.jpg",
-      "thumb": "/galeria/2025/thumbs/estacao-202.jpg",
-      "original": "/galeria/2025/originals/estacao-202.jpg",
-      "download": "/galeria/2025/originals/estacao-202.jpg"
     },
     {
       "name": "estacao-203.jpg",
@@ -1240,34 +484,10 @@
       "download": "/galeria/2025/originals/estacao-206.jpg"
     },
     {
-      "name": "estacao-207.jpg",
-      "thumb": "/galeria/2025/thumbs/estacao-207.jpg",
-      "original": "/galeria/2025/originals/estacao-207.jpg",
-      "download": "/galeria/2025/originals/estacao-207.jpg"
-    },
-    {
       "name": "estacao-208.jpg",
       "thumb": "/galeria/2025/thumbs/estacao-208.jpg",
       "original": "/galeria/2025/originals/estacao-208.jpg",
       "download": "/galeria/2025/originals/estacao-208.jpg"
-    },
-    {
-      "name": "estacao-209.jpg",
-      "thumb": "/galeria/2025/thumbs/estacao-209.jpg",
-      "original": "/galeria/2025/originals/estacao-209.jpg",
-      "download": "/galeria/2025/originals/estacao-209.jpg"
-    },
-    {
-      "name": "estacao-210.jpg",
-      "thumb": "/galeria/2025/thumbs/estacao-210.jpg",
-      "original": "/galeria/2025/originals/estacao-210.jpg",
-      "download": "/galeria/2025/originals/estacao-210.jpg"
-    },
-    {
-      "name": "estacao-211.jpg",
-      "thumb": "/galeria/2025/thumbs/estacao-211.jpg",
-      "original": "/galeria/2025/originals/estacao-211.jpg",
-      "download": "/galeria/2025/originals/estacao-211.jpg"
     },
     {
       "name": "estacao-212.jpg",
@@ -1288,34 +508,10 @@
       "download": "/galeria/2025/originals/estacao-214.jpg"
     },
     {
-      "name": "estacao-215.jpg",
-      "thumb": "/galeria/2025/thumbs/estacao-215.jpg",
-      "original": "/galeria/2025/originals/estacao-215.jpg",
-      "download": "/galeria/2025/originals/estacao-215.jpg"
-    },
-    {
-      "name": "estacao-216.jpg",
-      "thumb": "/galeria/2025/thumbs/estacao-216.jpg",
-      "original": "/galeria/2025/originals/estacao-216.jpg",
-      "download": "/galeria/2025/originals/estacao-216.jpg"
-    },
-    {
-      "name": "estacao-217.jpg",
-      "thumb": "/galeria/2025/thumbs/estacao-217.jpg",
-      "original": "/galeria/2025/originals/estacao-217.jpg",
-      "download": "/galeria/2025/originals/estacao-217.jpg"
-    },
-    {
       "name": "estacao-218.jpg",
       "thumb": "/galeria/2025/thumbs/estacao-218.jpg",
       "original": "/galeria/2025/originals/estacao-218.jpg",
       "download": "/galeria/2025/originals/estacao-218.jpg"
-    },
-    {
-      "name": "estacao-219.jpg",
-      "thumb": "/galeria/2025/thumbs/estacao-219.jpg",
-      "original": "/galeria/2025/originals/estacao-219.jpg",
-      "download": "/galeria/2025/originals/estacao-219.jpg"
     },
     {
       "name": "estacao-220.jpg",
@@ -1334,12 +530,6 @@
       "thumb": "/galeria/2025/thumbs/estacao-222.jpg",
       "original": "/galeria/2025/originals/estacao-222.jpg",
       "download": "/galeria/2025/originals/estacao-222.jpg"
-    },
-    {
-      "name": "estacao-223.jpg",
-      "thumb": "/galeria/2025/thumbs/estacao-223.jpg",
-      "original": "/galeria/2025/originals/estacao-223.jpg",
-      "download": "/galeria/2025/originals/estacao-223.jpg"
     },
     {
       "name": "estacao-224.jpg",
@@ -1420,12 +610,6 @@
       "download": "/galeria/2025/originals/estacao-236.jpg"
     },
     {
-      "name": "estacao-237.jpg",
-      "thumb": "/galeria/2025/thumbs/estacao-237.jpg",
-      "original": "/galeria/2025/originals/estacao-237.jpg",
-      "download": "/galeria/2025/originals/estacao-237.jpg"
-    },
-    {
       "name": "estacao-238.jpg",
       "thumb": "/galeria/2025/thumbs/estacao-238.jpg",
       "original": "/galeria/2025/originals/estacao-238.jpg",
@@ -1486,12 +670,6 @@
       "download": "/galeria/2025/originals/estacao-247.jpg"
     },
     {
-      "name": "estacao-248.jpg",
-      "thumb": "/galeria/2025/thumbs/estacao-248.jpg",
-      "original": "/galeria/2025/originals/estacao-248.jpg",
-      "download": "/galeria/2025/originals/estacao-248.jpg"
-    },
-    {
       "name": "estacao-249.jpg",
       "thumb": "/galeria/2025/thumbs/estacao-249.jpg",
       "original": "/galeria/2025/originals/estacao-249.jpg",
@@ -1516,12 +694,6 @@
       "download": "/galeria/2025/originals/estacao-252.jpg"
     },
     {
-      "name": "estacao-253.jpg",
-      "thumb": "/galeria/2025/thumbs/estacao-253.jpg",
-      "original": "/galeria/2025/originals/estacao-253.jpg",
-      "download": "/galeria/2025/originals/estacao-253.jpg"
-    },
-    {
       "name": "estacao-254.jpg",
       "thumb": "/galeria/2025/thumbs/estacao-254.jpg",
       "original": "/galeria/2025/originals/estacao-254.jpg",
@@ -1540,34 +712,10 @@
       "download": "/galeria/2025/originals/estacao-256.jpg"
     },
     {
-      "name": "estacao-257.jpg",
-      "thumb": "/galeria/2025/thumbs/estacao-257.jpg",
-      "original": "/galeria/2025/originals/estacao-257.jpg",
-      "download": "/galeria/2025/originals/estacao-257.jpg"
-    },
-    {
       "name": "estacao-258.jpg",
       "thumb": "/galeria/2025/thumbs/estacao-258.jpg",
       "original": "/galeria/2025/originals/estacao-258.jpg",
       "download": "/galeria/2025/originals/estacao-258.jpg"
-    },
-    {
-      "name": "estacao-259.jpg",
-      "thumb": "/galeria/2025/thumbs/estacao-259.jpg",
-      "original": "/galeria/2025/originals/estacao-259.jpg",
-      "download": "/galeria/2025/originals/estacao-259.jpg"
-    },
-    {
-      "name": "estacao-260.jpg",
-      "thumb": "/galeria/2025/thumbs/estacao-260.jpg",
-      "original": "/galeria/2025/originals/estacao-260.jpg",
-      "download": "/galeria/2025/originals/estacao-260.jpg"
-    },
-    {
-      "name": "estacao-261.jpg",
-      "thumb": "/galeria/2025/thumbs/estacao-261.jpg",
-      "original": "/galeria/2025/originals/estacao-261.jpg",
-      "download": "/galeria/2025/originals/estacao-261.jpg"
     },
     {
       "name": "estacao-262.jpg",
@@ -1642,12 +790,6 @@
       "download": "/galeria/2025/originals/estacao-273.jpg"
     },
     {
-      "name": "estacao-274.jpg",
-      "thumb": "/galeria/2025/thumbs/estacao-274.jpg",
-      "original": "/galeria/2025/originals/estacao-274.jpg",
-      "download": "/galeria/2025/originals/estacao-274.jpg"
-    },
-    {
       "name": "estacao-275.jpg",
       "thumb": "/galeria/2025/thumbs/estacao-275.jpg",
       "original": "/galeria/2025/originals/estacao-275.jpg",
@@ -1658,12 +800,6 @@
       "thumb": "/galeria/2025/thumbs/estacao-276.jpg",
       "original": "/galeria/2025/originals/estacao-276.jpg",
       "download": "/galeria/2025/originals/estacao-276.jpg"
-    },
-    {
-      "name": "estacao-277.jpg",
-      "thumb": "/galeria/2025/thumbs/estacao-277.jpg",
-      "original": "/galeria/2025/originals/estacao-277.jpg",
-      "download": "/galeria/2025/originals/estacao-277.jpg"
     },
     {
       "name": "estacao-278.jpg",
@@ -1708,18 +844,6 @@
       "download": "/galeria/2025/originals/estacao-284.jpg"
     },
     {
-      "name": "estacao-285.jpg",
-      "thumb": "/galeria/2025/thumbs/estacao-285.jpg",
-      "original": "/galeria/2025/originals/estacao-285.jpg",
-      "download": "/galeria/2025/originals/estacao-285.jpg"
-    },
-    {
-      "name": "estacao-286.jpg",
-      "thumb": "/galeria/2025/thumbs/estacao-286.jpg",
-      "original": "/galeria/2025/originals/estacao-286.jpg",
-      "download": "/galeria/2025/originals/estacao-286.jpg"
-    },
-    {
       "name": "estacao-287.jpg",
       "thumb": "/galeria/2025/thumbs/estacao-287.jpg",
       "original": "/galeria/2025/originals/estacao-287.jpg",
@@ -1730,12 +854,6 @@
       "thumb": "/galeria/2025/thumbs/estacao-288.jpg",
       "original": "/galeria/2025/originals/estacao-288.jpg",
       "download": "/galeria/2025/originals/estacao-288.jpg"
-    },
-    {
-      "name": "estacao-289.jpg",
-      "thumb": "/galeria/2025/thumbs/estacao-289.jpg",
-      "original": "/galeria/2025/originals/estacao-289.jpg",
-      "download": "/galeria/2025/originals/estacao-289.jpg"
     },
     {
       "name": "estacao-290.jpg",
@@ -1780,12 +898,6 @@
       "download": "/galeria/2025/originals/estacao-296.jpg"
     },
     {
-      "name": "estacao-297.jpg",
-      "thumb": "/galeria/2025/thumbs/estacao-297.jpg",
-      "original": "/galeria/2025/originals/estacao-297.jpg",
-      "download": "/galeria/2025/originals/estacao-297.jpg"
-    },
-    {
       "name": "estacao-298.jpg",
       "thumb": "/galeria/2025/thumbs/estacao-298.jpg",
       "original": "/galeria/2025/originals/estacao-298.jpg",
@@ -1798,22 +910,10 @@
       "download": "/galeria/2025/originals/estacao-299.jpg"
     },
     {
-      "name": "estacao-300.jpg",
-      "thumb": "/galeria/2025/thumbs/estacao-300.jpg",
-      "original": "/galeria/2025/originals/estacao-300.jpg",
-      "download": "/galeria/2025/originals/estacao-300.jpg"
-    },
-    {
       "name": "estacao-301.jpg",
       "thumb": "/galeria/2025/thumbs/estacao-301.jpg",
       "original": "/galeria/2025/originals/estacao-301.jpg",
       "download": "/galeria/2025/originals/estacao-301.jpg"
-    },
-    {
-      "name": "estacao-302.jpg",
-      "thumb": "/galeria/2025/thumbs/estacao-302.jpg",
-      "original": "/galeria/2025/originals/estacao-302.jpg",
-      "download": "/galeria/2025/originals/estacao-302.jpg"
     },
     {
       "name": "estacao-303.jpg",

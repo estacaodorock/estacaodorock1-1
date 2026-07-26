@@ -6,12 +6,10 @@ import { gsap } from "gsap";
 import { motion } from 'framer-motion';
 
 // Arranjo de bios específico desta seção, reutilizando os nomes do LineupPoster
-// Imagens serão inseridas posteriormente (usaremos placeholder por ora)
+// Imagens específicas podem ser inseridas posteriormente; o logo oficial é o fallback.
 // Links sociais podem ser atualizados conforme disponibilidade real
 
-const placeholderImg =
-  'data:image/svg+xml;utf8,' +
-  encodeURIComponent(`<?xml version="1.0" encoding="UTF-8"?><svg xmlns="http://www.w3.org/2000/svg" width="64" height="72" viewBox="0 0 64 72" role="img" aria-labelledby="title desc"><title>Imagem da banda indisponível</title><desc>Imagem temporária para a banda</desc><rect width="64" height="72" fill="#27272a"/><g fill="#a1a1aa"><rect x="12" y="16" width="40" height="6"/><rect x="8" y="30" width="48" height="6"/><rect x="16" y="44" width="32" height="6"/></g></svg>`);
+const BAND_FALLBACK_IMAGE = "/estacao-logo.svg";
 
 // Map de imagens reais no diretório /public/bandbios
 const BAND_IMAGE_MAP: Record<string, string> = {
@@ -26,18 +24,17 @@ const BAND_IMAGE_MAP: Record<string, string> = {
   "Egypcio + 7 Jack's | Tihuana": "/bandbios/Egypcio+7JACKS.svg",
 };
 
-const getBandImage = (name: string) => BAND_IMAGE_MAP[name] ?? placeholderImg;
+const getBandImage = (name: string) => BAND_IMAGE_MAP[name] ?? BAND_FALLBACK_IMAGE;
 
 const bandsBios = [
-  { name: "Trilha do Rock", bio: "A banda Trilha é quem vai abrir nosso Festival! Formada por músicos da nossa cidade de Bernardino de Campos, vem com um repertório completo de pop rock e rock nacional.", img: getBandImage("Trilha do Rock"), links: { instagram: "https://www.instagram.com/trilha.banda/", instagram2: undefined } },
-  { name: "Dona Tequila", bio: "A banda Dona Tequila foi formada em 2007 pelos amigos: Alf, Limil, Duzão, Gustavo Salaro e Gustavo Alcântara. Eles se dedicam a tocar o puro rock que vai desde o nacional até Ramones e Alice in Chains, além de fazerem parte do projeto \"Santa Cruz, cidade do Rock\" e da comissão de bandas de Santa Cruz do Rio Pardo, equipe que realiza o Rock Rio Pardo.", img: getBandImage("Dona Tequila"), links: { instagram: "https://www.instagram.com/bandadonatequila/", instagram2: undefined } },
-  { name: "LEDMOON", bio: "A LedMoon é formada por integrantes da cidade de Bauru – SP e Bernardino de Campos - SP e vão fazer um grande tributo às lendas do rock: Led Zeppelin e Pink Floyd.", img: getBandImage("LEDMOON"), links: { instagram: "https://www.instagram.com/bandaledmoon/", instagram2: undefined } },
-  { name: "Landau 69", bio: "A banda começou sua jornada em 2002, na cidade de Santa Cruz do Rio Pardo - SP, com mais de 300 shows realizados, eles percorreram uma extensa lista de cidades, levando sua música para todos os cantos.<br /><br />Seu repertório é uma celebração da música nacional e internacional. Desde os clássicos do pop rock brasileiro das décadas de 80/90/00 até o indie rock dos anos 2000.", img: getBandImage("Landau 69"), links: { instagram: "https://www.instagram.com/landau69/", instagram2: undefined } },
-  { name: "PMA Trio", bio: "Banda de rock clássico de Bernardino de Campos. Um trio que teve a formação de três professores de música formados em Tatuí para fazer o melhor do Rock e também os mais variados estilos, se aventurando pelo Pop, Reggae e Rock Nacional.<br /><br />São mais de 20 anos tocando e levando música de qualidade ao público. De Phil Collins a Bryan Adams, de Creedence Clearwater Revival a Rolling Stones, de Pink Floyd a Queen, de Bob Marley a Jimmy Cliff, de Bon Jovi a Nazareth, do Rock nacional dos anos 80 aos 2000. Um repertório muito completo e cheio de emoção.", img: getBandImage("PMA Trio"), links: { instagram: "https://www.instagram.com/pmatrioclassicrock/", instagram2: undefined } },
-  { name: "Mad Max", bio: "Formada por membros do Mad Max M.C de Avaré - SP, a banda é composta por amigos amantes de duas rodas e rock n'roll.<br /><br />Com o repertório voltado ao público estradeiro, é recheado de clássicos anos 70/80 e 90, como: Creedence Clearwater Revival, Lynyrd Skynyrd, KISS, ZZ Top, etc...", img: getBandImage("Mad Max"), links: { instagram: "https://www.instagram.com/madmaxmcband/", instagram2: undefined } },
-  { name: "The Wizzards", bio: "Banda tributo apaixonada por Black Sabbath e Ozzy Osbourne, dedicada a celebrar o legado destes ícones do rock. Com músicos talentosos e uma performance eletrizante, eles recriam fielmente os sucessos atemporais, transportando o público para a era dourada do rock.<br /><br />Formada em Bauru em 2019 a banda conta com Renato Guilhoto nos vocais, Walter Claro na guitarra, Cesar Guarnieri no baixo e Antônio Neto na bateria.", img: getBandImage("The Wizzards"), links: { instagram: "https://www.instagram.com/thewizzards_/", instagram2: undefined } },
-  { name: "Vigarista SK8Rock", bio: "Fundada no início de 2010 por Samuel Castilho e Vinicius Barcellos, experientes músicos da noite paulista, a banda vem se apresentado por diversos palcos de todo interior de São Paulo e Capital.<br /><br />Sua filosofia profissional garante qualidade e inovação a cada show, fidelidade sonora, pegada e carisma. Seu repertório conta com uma homenagem ao Charlie Brown Jr e ao rock nacional, que vem arrastando centenas de pessoas por onde passa.", img: getBandImage("Vigarista SK8Rock"), links: { instagram: "https://www.instagram.com/vigarista_sk8rock/", instagram2: undefined } },
-  { name: "Egypcio + 7 Jack's | Tihuana", bio: "Cantor, compositor e instrumentista brasileiro, conhecido por ser o vocalista da Tihuana, banda de rock brasileira formada em 1999 em São Paulo. Tornou-se conhecida nos primeiros anos da década de 2000 com a repercussão de \"Tropa de Elite\", canção que foi inclusa na trilha sonora do filme de mesmo nome.<br /><br />Egypcio também é vocalista da banda Cali e do projeto Charlie Brown Jr. A banda 7Jacks formada por músicos de Marília, toca todo tipo de rock e vem para uma parceria gigante com Egypcio!", img: getBandImage("Egypcio + 7 Jack's | Tihuana"), links: { instagram: "https://www.instagram.com/egypcio/", instagram2: "https://www.instagram.com/7jacksoficial/" } },
+  { name: "Cavalo de Aço", bio: "A Banda Cavalo de Aço é figurinha carimbada na cena de rock do interior paulista há mais de 10 anos, famosa por seus shows enérgicos de rock clássico e presença marcante em encontros de motociclistas.", img: getBandImage("Cavalo de Aço"), links: { instagram: undefined, instagram2: undefined } },
+  { name: "Carina Longband", bio: "A Carina Long Band (anteriormente conhecida como Rock Retrô por mais de 9 anos) é uma banda da região focada em country rock e country music. Liderada pela vocalista Carina, o grupo adotou o nome em inglês para refletir sua longa trajetória nos palcos e apresenta-se frequentemente em eventos e festivais do interior paulista.", img: getBandImage("Carina Longband"), links: { instagram: undefined, instagram2: undefined } },
+  { name: "Coquetel AZT", bio: "A Coquetel AZT é uma banda cover de rock da região de Santa Cruz do Rio Pardo (SP). O grupo é conhecido por apresentar grandes clássicos do rock nacional, com um forte destaque para o repertório de Barão Vermelho.<br /><br />A formação atual da banda conta com: Duzão (Guitarra e Vocal), Guilherme Alvim (Guitarra), Luiz Gustavo (Baixo) e Hugo Coelho (Bateria).", img: getBandImage("Coquetel AZT"), links: { instagram: undefined, instagram2: undefined } },
+  { name: "Deck 66", bio: "Com 14 anos de estrada, a DECK66, formada em Bauru, tem como principal objetivo transformar o tempo vivido pelo público em momentos inesquecíveis, através de versões únicas da música do mundo, tudo isso com pegada, interpretação e Rock de atitude. Passou por pubs, casas de shows, festivais e grandes públicos durante sua história. Abriu shows de Frejat, Velhas Virgens, Cidade Negra e participou de grandes eventos universitários, formaturas, casamentos, festivais de música, e outros dos mais diferentes tipos.", img: getBandImage("Deck 66"), links: { instagram: undefined, instagram2: undefined } },
+  { name: "Pearl Jam Cover Ribeirão", bio: "Uma das bandas cover mais tradicionais do Brasil, com 26 anos de estrada e mais de 2.800 shows. O grupo traz o vocalista Raul Shiya nos vocais e apresenta um repertório que alterna clássicos de Seattle com grandes nomes do rock dos anos 90 e 2000.", img: getBandImage("Pearl Jam Cover Ribeirão"), links: { instagram: undefined, instagram2: undefined } },
+  { name: "No Fate", bio: "Tradicional banda de Santa Cruz do Rio Pardo, fundada em 1994. O quarteto é referência na região no segmento de classic rock, com repertório focado em reviver grandes clássicos nacionais e internacionais.<br /><br />A formação atual conta com Vaninho (vocal), Renato Neli (guitarra), Kaio Sales Profeta (bateria) e Jé Cardoso (baixo).", img: getBandImage("No Fate"), links: { instagram: undefined, instagram2: undefined } },
+  { name: "Salamancas", bio: "Se destaca na cena do rock e pop/rock regional de Botucatu, realizando apresentações animadas em festivais, pubs e eventos beneficentes.", img: getBandImage("Salamancas"), links: { instagram: undefined, instagram2: undefined } },
+  { name: "Raimundos", bio: "Uma das maiores bandas da história do rock nacional desembarca em Bernardino de Campos para um show pesado, intenso e cheio de clássicos que marcaram gerações.", img: getBandImage("Raimundos"), links: { instagram: undefined, instagram2: undefined } },
 ];
 
 const SQRT_5000 = Math.sqrt(5000);
@@ -256,6 +253,7 @@ export default function BandBiosSection() {
             const isExpanded = expandedCards.has(band.name);
             const longBio = isLongBio(band.bio);
             const shouldShowExpandButton = isMobile && longBio && isCenter;
+            const usesFallbackImage = band.img === BAND_FALLBACK_IMAGE;
 
             // Truncar com segurança nas laterais (sem HTML)
             const shortBioPlain = truncateText(stripHtml(band.bio), 120);
@@ -306,15 +304,19 @@ export default function BandBiosSection() {
                 <div className="flex items-start justify-between gap-4">
                   <img
                     src={band.img}
-                    alt={`Foto da banda ${band.name}`}
+                    alt={usesFallbackImage ? `Logo Estação Rock para ${band.name}` : `Foto da banda ${band.name}`}
                     width={64}
                     height={64}
                     loading="lazy"
                     decoding="async"
                     onError={(e) => {
-                      (e.currentTarget as HTMLImageElement).src = placeholderImg;
+                      const image = e.currentTarget as HTMLImageElement;
+                      image.src = BAND_FALLBACK_IMAGE;
+                      image.alt = `Logo Estação Rock para ${band.name}`;
+                      image.classList.remove("object-cover");
+                      image.classList.add("object-contain", "p-1");
                     }}
-                    className={`${isCenter ? "ring-black/50" : "ring-white/20"} h-16 w-16 lg:h-[72px] lg:w-[72px] rounded-full object-cover object-center bg-zinc-800/50 ring-2 shadow-[0_1px_0_rgba(0,0,0,0.6)]`}
+                    className={`${isCenter ? "ring-black/50" : "ring-white/20"} ${usesFallbackImage ? "object-contain p-1" : "object-cover"} h-16 w-16 lg:h-[72px] lg:w-[72px] rounded-full object-center bg-zinc-800/50 ring-2 shadow-[0_1px_0_rgba(0,0,0,0.6)]`}
                   />
 
                   <button

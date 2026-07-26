@@ -2,9 +2,11 @@
 
 import { useScroll, useTransform, motion, MotionValue, useReducedMotion } from 'framer-motion';
 import React, { useRef, forwardRef, useEffect, useState, useCallback } from 'react';
+import { SHOW_EXTENDED_FOOTER } from '@/config/featureFlags';
 
 interface SectionProps {
   scrollYProgress: MotionValue<number>;
+  animateOnScroll?: boolean;
 }
 
 interface HeroScrollProps {
@@ -37,13 +39,13 @@ const Tape: React.FC<{ position: 'tl' | 'tr' | 'bl' | 'br'; color?: string }> = 
 };
 
 // ---------- SECTION 1 (Pôster 1) ----------
-const Section1: React.FC<SectionProps> = ({ scrollYProgress }) => {
+const Section1: React.FC<SectionProps> = ({ scrollYProgress, animateOnScroll = true }) => {
   const scale = useTransform(scrollYProgress, [0, 1], [1, 0.85]);
   const rotate = useTransform(scrollYProgress, [0, 1], [0, -10]);
 
   return (
     <motion.section
-      style={{ scale, rotate }}
+      style={animateOnScroll ? { scale, rotate } : undefined}
       className='sticky top-0 h-screen flex flex-col items-center justify-center
                  bg-black overflow-hidden'
     >
@@ -109,7 +111,7 @@ const HeroScrollAnimation = forwardRef<HTMLElement, HeroScrollProps>(({ linkHref
 
   // Observa o footer e exibe vídeo quando estiver no viewport
   useEffect(() => {
-    if (!footerRef.current) return;
+    if (!SHOW_EXTENDED_FOOTER || !footerRef.current) return;
 
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -226,16 +228,22 @@ const HeroScrollAnimation = forwardRef<HTMLElement, HeroScrollProps>(({ linkHref
   };
 
   return (
-    <main ref={container} className='relative h-[200vh] overflow-x-hidden'>
-      <Section1 scrollYProgress={scrollYProgress} />
-      <Section2 scrollYProgress={scrollYProgress} />
+    <main
+      ref={container}
+      className={`relative overflow-x-hidden ${SHOW_EXTENDED_FOOTER ? 'h-[200vh]' : 'h-screen'}`}
+    >
+      <Section1 scrollYProgress={scrollYProgress} animateOnScroll={SHOW_EXTENDED_FOOTER} />
 
-      <footer ref={footerRef} className='bg-black py-16 flex justify-center items-center' aria-hidden="true">
-      </footer>
+      {SHOW_EXTENDED_FOOTER && (
+        <>
+          <Section2 scrollYProgress={scrollYProgress} />
 
-      {/* Seção de vídeo inline full-width quando chegar ao footer */}
-      {showVideoSection && (
-        <motion.section
+          <footer ref={footerRef} className='bg-black py-16 flex justify-center items-center' aria-hidden="true">
+          </footer>
+
+          {/* Seção de vídeo inline full-width quando chegar ao footer */}
+          {showVideoSection && (
+            <motion.section
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: 'easeOut' }}
@@ -319,7 +327,9 @@ const HeroScrollAnimation = forwardRef<HTMLElement, HeroScrollProps>(({ linkHref
               </p>
             </div>
           </div>
-        </motion.section>
+            </motion.section>
+          )}
+        </>
       )}
     </main>
   );

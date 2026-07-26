@@ -14,6 +14,7 @@ import {
   Zap
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import { SHOW_SUPPORT_SECTION } from '@/config/featureFlags';
 import './rock-styles.css';
 
 export const Navigation = () => {
@@ -47,7 +48,7 @@ export const Navigation = () => {
     { id: 'interatividade', label: 'Interatividade', icon: Zap },
     { id: 'galeria', label: 'Galeria', icon: Image },
     { id: 'sobre', label: 'Sobre', icon: Info },
-    { id: 'apoio', label: 'Apoio', icon: Heart },
+    ...(SHOW_SUPPORT_SECTION ? [{ id: 'apoio', label: 'Apoio', icon: Heart }] : []),
     { id: 'fale-conosco', label: 'Contato', icon: Info },
   ];
 
@@ -219,8 +220,8 @@ export const Navigation = () => {
           {/* Logo */}
           <a href="/" className="flex items-center gap-4">
              <img 
-               src="/logo2.svg" 
-               alt="Estação Rock Logo" 
+               src="/estacao-logo.svg"
+               alt="Estação Rock Logo"
                className="h-16 w-auto drop-shadow-[0_0_12px_#ff2a2a] animate-heartbeat"
              />
            </a>

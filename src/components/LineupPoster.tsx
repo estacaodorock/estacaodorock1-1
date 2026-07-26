@@ -8,15 +8,14 @@ import { TapeElement } from '@/components/ui/tape-element'
 
 // Dados do lineup conforme arte de referência
 const lineupData = [
-  { time: '13H', band: 'Trilha do Rock', variant: 'red' as const, rotate: -2 },
-  { time: '14:10H', band: 'Dona Tequila', variant: 'pink' as const, rotate: 1 },
-  { time: '15:20H', band: 'LEDMOON', variant: 'red' as const, rotate: -1 },
-  { time: '16:20H', band: 'Landau 69', variant: 'pink' as const, rotate: 2 },
-  { time: '17:40H', band: 'PMA Trio', variant: 'red' as const, rotate: -3 },
-  { time: '19H', band: 'Mad Max', variant: 'pink' as const, rotate: 1 },
-  { time: '20:20H', band: 'The Wizzards', variant: 'red' as const, rotate: -1 },
-  { time: '22:10H', band: 'Vigarista SK8Rock', variant: 'pink' as const, rotate: 2 },
-  { time: '23H', band: "Egypcio + 7 Jack’s | Tihuana", variant: 'orange' as const, rotate: -2 },
+  { time: '14:00', band: 'Cavalo de Aço', variant: 'red' as const, rotate: -2 },
+  { time: '15:00', band: 'Carina Longband', variant: 'pink' as const, rotate: 1 },
+  { time: '16:00', band: 'Coquetel AZT', badge: 'Tributo Barão Vermelho', variant: 'red' as const, rotate: -1 },
+  { time: '17:00', band: 'Deck66', variant: 'pink' as const, rotate: 2 },
+  { time: '18:00', band: 'Pearl Jam Cover', badge: 'Ribeirão', variant: 'red' as const, rotate: -3 },
+  { time: '19:30', band: 'No Fate', variant: 'pink' as const, rotate: 1 },
+  { time: '20:30', band: 'Salamancas', variant: 'red' as const, rotate: -1 },
+  { time: '22:00', band: 'Raimundos', variant: 'orange' as const, rotate: 2 },
 ]
 
 type Variant = 'red' | 'pink' | 'orange'
@@ -232,7 +231,14 @@ export default function LineupPoster() {
                   <div className="absolute top-2 left-6 w-8 h-0.5 bg-black/30 rotate-6"></div>
                   <div className="absolute bottom-3 right-8 w-6 h-0.5 bg-white/20 -rotate-12"></div>
                 </div>
-                <span className="relative drop-shadow-sm">{item.band}</span>
+                <div className="relative flex flex-wrap items-center gap-2 drop-shadow-sm">
+                  <span>{item.band}</span>
+                  {item.badge && (
+                    <span className="inline-flex items-center rounded-sm border border-black/20 bg-yellow-400 px-2 py-0.5 text-[10px] font-bold uppercase leading-tight tracking-wide text-black shadow-sm sm:text-xs">
+                      {item.badge}
+                    </span>
+                  )}
+                </div>
               </div>
             </div>
           </motion.div>

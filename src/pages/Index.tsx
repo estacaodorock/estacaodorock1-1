@@ -13,6 +13,7 @@ import InteractivitySection from '@/components/InteractivitySection';
 import { TapeCorner } from '@/components/ui/tape-element';
 import { LogoCarousel } from '@/components/LogoCarousel';
 import SocialLinksSection from '@/components/SocialLinksSection';
+import { SHOW_SUPPORT_SECTION } from '@/config/featureFlags';
 
 const Index = () => {
   const prefersReducedMotion = useReducedMotion();
@@ -237,66 +238,68 @@ const Index = () => {
           </div>
         </motion.div>
 
-        {/* Seção Apoio (logo abaixo de Sobre) */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.2 }}
-          transition={{ duration: 0.6, ease: 'easeOut', delay: 0.1 }}
-           className="mt-6 md:mt-10"
-        >
-          <div className="max-w-7xl mx-auto px-4">
-            <div className="relative">
-              <FloatingPanel>
-                <section id="apoio" aria-labelledby="apoio-title">
-                  <div className="rounded-2xl border border-white/15 bg-black p-4 md:p-6">
-                    <h2
-                      id="apoio-title"
-                      className="text-3xl md:text-4xl font-bold uppercase tracking-wider text-white mb-2"
-                    >
-                      Apoio
-                    </h2>
-                    <p className="text-white/80 text-sm md:text-base mb-4">Marcas que impulsionam este projeto</p>
-                    <LogoCarousel
-                      className="py-2"
-                      logos={[
-                        { id: '1', name: 'Sponsor 1', logo: '/sponsors/1.svg', url: '#' },
-                        { id: '2', name: 'Sponsor 2', logo: '/sponsors/2.svg', url: '#' },
-                        { id: '3', name: 'Sponsor 3', logo: '/sponsors/3.svg', url: '#' },
-                        { id: '4', name: 'Sponsor 4', logo: '/sponsors/4.svg', url: '#' },
-                        { id: '5', name: 'Sponsor 5', logo: '/sponsors/5.svg', url: '#' },
-                        { id: '6', name: 'Sponsor 6', logo: '/sponsors/6.svg', url: '#' },
-                        { id: '7', name: 'Sponsor 7', logo: '/sponsors/7.svg', url: '#' },
-                        { id: '8', name: 'Sponsor 8', logo: '/sponsors/8.svg', url: '#' },
-                        { id: '9', name: 'Sponsor 9', logo: '/sponsors/9.svg', url: '#' },
-                        { id: '10', name: 'Sponsor 10', logo: '/sponsors/10.svg', url: '#' },
-                        { id: '11', name: 'Sponsor 11', logo: '/sponsors/11.svg', url: '#' },
-                        { id: '12', name: 'Sponsor 12', logo: '/sponsors/12.svg', url: '#' },
-                        { id: '13', name: 'Sponsor 13', logo: '/sponsors/13.svg', url: '#' },
-                        { id: '14', name: 'Sponsor 14', logo: '/sponsors/14.svg', url: '#' },
-                        { id: '15', name: 'Sponsor 15', logo: '/sponsors/15.svg', url: '#' },
-                        { id: '16', name: 'Sponsor 16', logo: '/sponsors/16.svg', url: '#' },
-                        { id: '17', name: 'Sponsor 17', logo: '/sponsors/17.svg', url: '#' },
-                        { id: '18', name: 'Sponsor 18', logo: '/sponsors/18.svg', url: '#' },
-                        { id: '19', name: 'Sponsor 19', logo: '/sponsors/19.svg', url: '#' },
-                        { id: '20', name: 'Sponsor 20', logo: '/sponsors/20.svg', url: '#' },
-                        { id: '21', name: 'Sponsor 21', logo: '/sponsors/21.svg', url: '#' },
-                        { id: '22', name: 'Sponsor 22', logo: '/sponsors/22.svg', url: '#' },
-                        { id: '23', name: 'Sponsor 23', logo: '/sponsors/23.svg', url: '#' },
-                        { id: '24', name: 'Sponsor 24', logo: '/sponsors/24.svg', url: '#' },
-                        { id: '25', name: 'Sponsor 25', logo: '/sponsors/25.svg', url: '#' },
-                        { id: '26', name: 'Sponsor 26', logo: '/sponsors/26.svg', url: '#' },
-                        { id: '27', name: 'Sponsor 27', logo: '/sponsors/27.svg', url: '#' },
-                      ]}
-                    />
-                  </div>
-                </section>
-              </FloatingPanel>
-              <TapeCorner corner="top-left" className="z-20 opacity-90" />
-              <TapeCorner corner="top-right" className="z-20 opacity-90" />
+        {/* Controlada por SHOW_SUPPORT_SECTION em src/config/featureFlags.ts */}
+        {SHOW_SUPPORT_SECTION && (
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.6, ease: 'easeOut', delay: 0.1 }}
+            className="mt-6 md:mt-10"
+          >
+            <div className="max-w-7xl mx-auto px-4">
+              <div className="relative">
+                <FloatingPanel>
+                  <section id="apoio" aria-labelledby="apoio-title">
+                    <div className="rounded-2xl border border-white/15 bg-black p-4 md:p-6">
+                      <h2
+                        id="apoio-title"
+                        className="text-3xl md:text-4xl font-bold uppercase tracking-wider text-white mb-2"
+                      >
+                        Apoio
+                      </h2>
+                      <p className="text-white/80 text-sm md:text-base mb-4">Marcas que impulsionam este projeto</p>
+                      <LogoCarousel
+                        className="py-2"
+                        logos={[
+                          { id: '1', name: 'Sponsor 1', logo: '/sponsors/1.svg', url: '#' },
+                          { id: '2', name: 'Sponsor 2', logo: '/sponsors/2.svg', url: '#' },
+                          { id: '3', name: 'Sponsor 3', logo: '/sponsors/3.svg', url: '#' },
+                          { id: '4', name: 'Sponsor 4', logo: '/sponsors/4.svg', url: '#' },
+                          { id: '5', name: 'Sponsor 5', logo: '/sponsors/5.svg', url: '#' },
+                          { id: '6', name: 'Sponsor 6', logo: '/sponsors/6.svg', url: '#' },
+                          { id: '7', name: 'Sponsor 7', logo: '/sponsors/7.svg', url: '#' },
+                          { id: '8', name: 'Sponsor 8', logo: '/sponsors/8.svg', url: '#' },
+                          { id: '9', name: 'Sponsor 9', logo: '/sponsors/9.svg', url: '#' },
+                          { id: '10', name: 'Sponsor 10', logo: '/sponsors/10.svg', url: '#' },
+                          { id: '11', name: 'Sponsor 11', logo: '/sponsors/11.svg', url: '#' },
+                          { id: '12', name: 'Sponsor 12', logo: '/sponsors/12.svg', url: '#' },
+                          { id: '13', name: 'Sponsor 13', logo: '/sponsors/13.svg', url: '#' },
+                          { id: '14', name: 'Sponsor 14', logo: '/sponsors/14.svg', url: '#' },
+                          { id: '15', name: 'Sponsor 15', logo: '/sponsors/15.svg', url: '#' },
+                          { id: '16', name: 'Sponsor 16', logo: '/sponsors/16.svg', url: '#' },
+                          { id: '17', name: 'Sponsor 17', logo: '/sponsors/17.svg', url: '#' },
+                          { id: '18', name: 'Sponsor 18', logo: '/sponsors/18.svg', url: '#' },
+                          { id: '19', name: 'Sponsor 19', logo: '/sponsors/19.svg', url: '#' },
+                          { id: '20', name: 'Sponsor 20', logo: '/sponsors/20.svg', url: '#' },
+                          { id: '21', name: 'Sponsor 21', logo: '/sponsors/21.svg', url: '#' },
+                          { id: '22', name: 'Sponsor 22', logo: '/sponsors/22.svg', url: '#' },
+                          { id: '23', name: 'Sponsor 23', logo: '/sponsors/23.svg', url: '#' },
+                          { id: '24', name: 'Sponsor 24', logo: '/sponsors/24.svg', url: '#' },
+                          { id: '25', name: 'Sponsor 25', logo: '/sponsors/25.svg', url: '#' },
+                          { id: '26', name: 'Sponsor 26', logo: '/sponsors/26.svg', url: '#' },
+                          { id: '27', name: 'Sponsor 27', logo: '/sponsors/27.svg', url: '#' },
+                        ]}
+                      />
+                    </div>
+                  </section>
+                </FloatingPanel>
+                <TapeCorner corner="top-left" className="z-20 opacity-90" />
+                <TapeCorner corner="top-right" className="z-20 opacity-90" />
+              </div>
             </div>
-          </div>
-        </motion.div>
+          </motion.div>
+        )}
 
         {/* Redes Sociais */}
         <motion.div

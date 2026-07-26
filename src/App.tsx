@@ -17,11 +17,14 @@ import PreHome from "./pages/PreHome";
 import PageLoader from "./components/PageLoader";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
+import { SHOW_PREHOME } from "./config/featureFlags";
 
 const queryClient = new QueryClient();
 
 const App = () => {
-  const [step, setStep] = useState<"prehome" | "loader" | "main">("prehome");
+  const [step, setStep] = useState<"prehome" | "loader" | "main">(
+    SHOW_PREHOME ? "prehome" : "loader",
+  );
   const [userGesture, setUserGesture] = useState<boolean>(false);
 
   const handleEnter = () => {

@@ -1,153 +1,160 @@
-import { useState, useEffect, useRef } from 'react';
-import type { ReactNode } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
+import type { ReactNode, RefObject } from 'react';
 import { Camera, ChevronLeft, ChevronRight, X } from 'lucide-react';
 import { HoverImageGallery } from '@/components/ui/hover-image-gallery';
 import { createPortal } from 'react-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 
-// Array limpo apenas com imagens existentes
-const muralImages = [
-  '/mural/1.png',
-  '/mural/135.jpg',
-  '/mural/160.jpg',
-  '/mural/1954-EFS-Sorocabana-3.gif',
-  '/mural/1970efSorocabana.jpg',
-  '/mural/bercampos-arm.jpg',
-  '/mural/bercampos60.jpg',
-  '/mural/Bernadino_de_Campos_3446.jpg',
-  '/mural/Bernadino_de_Campos_3741.jpg',
-  '/mural/bernardino_de_campos.jpg',
-  '/mural/bernardinodecampos9391.jpg',
-  '/mural/bernardinodecampos9411.jpg',
-  '/mural/berncampos50.jpg',
-  '/mural/berncampos9401.jpg',
-  '/mural/berncampos9961.jpg',
-  '/mural/berncampos9971.jpg',
-  '/mural/estacao-frente.png',
-  '/mural/estacao-frente2.png',
-  '/mural/ferrovia.png',
-];
+const INITIAL_GRID_COUNT = 12;
+const GRID_PAGE_SIZE = 12;
 
-const mockPhotos = [
-  {
-    id: 1,
-    image: muralImages[0],
-    likes: 0,
-    liked: false,
-    caption: 'Legenda será adicionada posteriormente'
-  },
-  {
-    id: 2,
-    image: muralImages[1],
-    likes: 0,
-    liked: false,
-    caption: 'Legenda será adicionada posteriormente'
-  },
-  {
-    id: 3,
-    image: muralImages[2],
-    likes: 0,
-    liked: false,
-    caption: 'Legenda será adicionada posteriormente'
-  },
-  {
-    id: 4,
-    image: muralImages[7],
-    likes: 0,
-    liked: false,
-    caption: 'Legenda será adicionada posteriormente'
-  },
-  {
-    id: 5,
-    image: muralImages[8],
-    likes: 0,
-    liked: false,
-    caption: 'Legenda será adicionada posteriormente'
-  },
-  {
-    id: 6,
-    image: muralImages[9],
-    likes: 0,
-    liked: false,
-    caption: 'Legenda será adicionada posteriormente'
-  }
-];
-
-// Criar dados completos para modal (todas as imagens do mural) com legendas específicas
-const allMuralPhotos = muralImages.map((image, index) => {
-  const captions = [
-    'Estação em Julho/2006.',
-    'Relatórios do IBGE de 1946 e 1955, mostrando a distância das estações. Após várias retificações (plano de modernização da EFS) nos trechos da ferrovia, principalmente na serra de Botucatú/SP, a distância até São Paulo foi encurtada. Estação Bernardino de Campos - 31/12/46 - km 451 / Estação Bernardino de Campos - 31/12/55 - km 403',
-    'Relatórios do IBGE de 1946 e 1955, mostrando a distância das estações. Após várias retificações (plano de modernização da EFS) nos trechos da ferrovia, principalmente na serra de Botucatú/SP, a distância até São Paulo foi encurtada. Estação Bernardino de Campos - 31/12/46 - km 451 / Estação Bernardino de Campos - 31/12/55 - km 403',
-    'Em 1954, a linha paralela ao rio Paranapanema, até Presidente Epitácio, era oficialmente considerada parte da Linha Tronco da Estrada de Ferro Sorocabana.',
-    '"Ferrovias do Brasil 1970" - DNEF apresentação: Flavio R. Cavalcanti',
-    'Armazém ao lado da estação, em 22/10/2000. Foto Ralph M. Giesbrecht',
-    'A estação apinhada de gente, c. 1960. Note que ainda não existe a eletrificação no trecho. Foto dos arquivos do Museu da Cia. Paulista, Jundiaí',
-    'Fábrica refinação de milho 1939/1940. Existia um ramal para atender esta indústria.',
-    'Povoado Douradão (1886)',
-    'Referência geográfica do IBGE/1939.',
-    'A cidade de Bernardino de Campos em 1939 (O Estado de S. Paulo, 19/12/1939).',
-    'Movimento da estação no ano de 1940 (O Estado de S. Paulo, 19/12/1939).',
-    'A estação antiga de Bernardino de Campos, em foto sem data (anos 1930?). Foto cedida por Antonio Rapette',
-    'Bilhete para ir de Bernardino de Campos a Cerqueira Cesar em primeira classe, provavelmente nos anos 1940.',
-    'A estação em 26/4/1996. Foto Carlos R. Almeida',
-    'Elétrica da FEPASA em frente à estação em 1997 (Foto Sergio Salgado).',
-    'Fachada da estação em 2006.',
-    'Estação Ferroviária de Bernardino de Campos',
-    '', // ferrovia.png - sem legenda conforme solicitado
-  ];
-  return {
-    id: index + 1,
-    image,
-    likes: 0,
-    liked: false,
-    caption: captions[index] || `Imagem histórica ${index + 1}`
-  };
-});
-
-// Novo tipo para fotos da galeria de 2025 (manifest)
 type GalleryPhoto = {
   id: number;
   thumb: string;
   original: string;
-  download: string;
-  likes: number;
-  liked: boolean;
-  caption: string; // sem metadados por enquanto
+  caption: string;
 };
 
 type Manifest = {
   year: number;
   count: number;
   basePath: string;
-  items: { name: string; thumb: string; original: string; download: string }[];
+  items: { name: string; thumb: string; original: string }[];
+};
+
+type GalleryModalProps = {
+  children: ReactNode;
+  title: string;
+  portalEl: HTMLElement | null;
+  modalRef: RefObject<HTMLDivElement>;
+  headerRef: RefObject<HTMLDivElement>;
+  closeButtonRef: RefObject<HTMLButtonElement>;
+  closeLabel: string;
+  onBackdropClose: () => void;
+  onCloseButton: () => void;
+};
+
+const GalleryModal = ({
+  children,
+  title,
+  portalEl,
+  modalRef,
+  headerRef,
+  closeButtonRef,
+  closeLabel,
+  onBackdropClose,
+  onCloseButton,
+}: GalleryModalProps) => {
+  useEffect(() => {
+    const originalOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+    return () => {
+      document.body.style.overflow = originalOverflow;
+    };
+  }, []);
+
+  if (!portalEl) return null;
+
+  return createPortal(
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      className="fixed inset-0 z-50 flex items-center justify-center p-4"
+    >
+      <motion.div
+        className="absolute inset-0 bg-black/70"
+        aria-hidden="true"
+        onClick={onBackdropClose}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        transition={{ duration: 0.2, ease: 'easeOut' }}
+      />
+
+      <motion.div
+        ref={modalRef}
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="gallery-modal-title"
+        className="relative z-10 w-full max-w-[min(1200px,calc(100vw-2rem))] h-[92vh] max-h-[92vh] flex flex-col min-h-0 rounded-2xl"
+        initial={{ opacity: 0, scale: 0.98, y: 8 }}
+        animate={{ opacity: 1, scale: 1, y: 0 }}
+        exit={{ opacity: 0, scale: 0.99, y: -4 }}
+        transition={{ duration: 0.2, ease: 'easeOut' }}
+      >
+        <div className="p-[1px] h-full rounded-2xl bg-gradient-to-r from-[#ff2a2a] via-[#ffbd00] to-[#ff2a2a]">
+          <div className="relative h-full bg-black/70 border border-white/10 rounded-2xl flex flex-col min-h-0">
+            <div
+              className="pointer-events-none absolute inset-x-0 top-0 h-8 bg-gradient-to-b from-white/10 to-transparent rounded-t-2xl"
+              aria-hidden="true"
+            />
+
+            <div ref={headerRef} className="flex items-center justify-between px-4 py-3 border-b border-white/10 flex-shrink-0">
+              <h2 id="gallery-modal-title" className="text-xl md:text-2xl font-bold text-white uppercase tracking-wider">
+                {title}
+              </h2>
+              <button
+                ref={closeButtonRef}
+                onClick={onCloseButton}
+                className="p-2 rounded-full bg-white/10 text-white hover:bg-white/20 transition-colors focus:ring-2 focus:ring-white/40 focus:outline-none"
+                aria-label={closeLabel}
+                type="button"
+              >
+                <X className="w-5 h-5" />
+              </button>
+            </div>
+
+            {children}
+          </div>
+        </div>
+      </motion.div>
+    </motion.div>,
+    portalEl,
+  );
 };
 
 export const GaleriaSection = () => {
-  // Estado unificado para todas as fotos (grid + modal)
+  const sectionRef = useRef<HTMLElement>(null);
+  const [shouldLoadGallery, setShouldLoadGallery] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const [loadError, setLoadError] = useState<string | null>(null);
+  const [loadAttempt, setLoadAttempt] = useState(0);
   const [allPhotos, setAllPhotos] = useState<GalleryPhoto[]>([]);
   const [showModal, setShowModal] = useState(false);
-  // Grid completo dentro do modal
-  const [gridCount, setGridCount] = useState(60);
-  const gridSentinelRef = useRef<HTMLDivElement | null>(null);
-  const gridScrollRef = useRef<HTMLDivElement | null>(null);
-  // Para animar apenas os itens recém-carregados
-  const prevGridCountRef = useRef(gridCount);
-  useEffect(() => {
-    prevGridCountRef.current = gridCount;
-  }, [gridCount]);
+  const [gridCount, setGridCount] = useState(INITIAL_GRID_COUNT);
   const [viewerOpen, setViewerOpen] = useState(false);
-  // Índice alvo (pedido pelo usuário)
-  const [currentImageIndex, setCurrentImageIndex] = useState(0);
-  // Índice efetivamente exibido (para crossfade suave)
   const [displayedIndex, setDisplayedIndex] = useState(0);
   const [prevIndex, setPrevIndex] = useState<number | null>(null);
   const [baseLoaded, setBaseLoaded] = useState(false);
   const [fadingOverlay, setFadingOverlay] = useState(false);
   // Fonte da imagem de overlay (pode ser o thumb ao abrir a viewer)
   const [overlaySrc, setOverlaySrc] = useState<string | null>(null);
-  // Portal root element for Modal para evitar overflow/transform em iOS
   const [portalEl, setPortalEl] = useState<HTMLElement | null>(null);
+
+  // Adia o manifesto e as imagens até a seção se aproximar do viewport.
+  useEffect(() => {
+    const section = sectionRef.current;
+    if (!section || typeof window === 'undefined' || !('IntersectionObserver' in window)) {
+      setShouldLoadGallery(true);
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries.some((entry) => entry.isIntersecting)) {
+          setShouldLoadGallery(true);
+          observer.disconnect();
+        }
+      },
+      { rootMargin: '600px 0px', threshold: 0.01 },
+    );
+
+    observer.observe(section);
+    return () => observer.disconnect();
+  }, []);
+
+  // Portal isolado para evitar overflow/transform em navegadores móveis.
   useEffect(() => {
     if (typeof window === 'undefined' || typeof document === 'undefined') return;
     let el = document.getElementById('modal-root') as HTMLElement | null;
@@ -169,60 +176,64 @@ export const GaleriaSection = () => {
   // Dev helper: abrir o modal automaticamente com hash #openGallery (somente em dev)
   useEffect(() => {
     if (import.meta.env.DEV && typeof window !== 'undefined' && window.location.hash.includes('openGallery')) {
+      setShouldLoadGallery(true);
       setShowModal(true);
       setViewerOpen(false);
-      setTimeout(() => { try { modalRef.current?.scrollTo?.({ top: 0 }); } catch {} }, 50);
+      setTimeout(() => modalRef.current?.scrollTo?.({ top: 0 }), 50);
     }
   }, []);
 
   // Carregar manifest da galeria 2025
   useEffect(() => {
+    if (!shouldLoadGallery) return;
+
     let cancelled = false;
     const controller = new AbortController();
+
+    const requestManifest = async (url: string, cache: RequestCache) => {
+      const response = await fetch(url, { signal: controller.signal, cache });
+      if (!response.ok) throw new Error(`Falha ao carregar manifest da galeria (${response.status})`);
+      const contentType = response.headers.get('content-type') || '';
+      if (!contentType.includes('application/json')) {
+        throw new Error('Manifest não é JSON (content-type inesperado)');
+      }
+      const manifest: Manifest = await response.json();
+      if (!Array.isArray(manifest.items) || manifest.items.length === 0) {
+        throw new Error('Manifest da galeria está vazio ou inválido');
+      }
+      return manifest;
+    };
+
     async function load() {
+      setIsLoading(true);
+      setLoadError(null);
       try {
         const ts = import.meta.env.DEV ? `?ts=${Date.now()}` : '';
         const url = `${import.meta.env.BASE_URL || '/'}galeria/2025/manifest.json${ts}`.replace(/\/+/, '/');
-        const res = await fetch(url, { signal: controller.signal, cache: 'no-store' as RequestCache });
-        if (!res.ok) throw new Error(`Falha ao carregar manifest da galeria (${res.status})`);
-        const ct = res.headers.get('content-type') || '';
-        if (!ct.includes('application/json')) {
-          throw new Error('Manifest não é JSON (content-type inesperado)');
+        let manifest: Manifest;
+
+        try {
+          manifest = await requestManifest(url, import.meta.env.DEV ? 'no-store' : 'default');
+        } catch (error) {
+          if (!import.meta.env.DEV || controller.signal.aborted) throw error;
+          manifest = await requestManifest('/galeria/2025/manifest.json', 'no-store');
         }
-        const manifest: Manifest = await res.json();
+
         if (cancelled) return;
         const photos: GalleryPhoto[] = manifest.items.map((it, idx) => ({
           id: idx + 1,
           thumb: it.thumb,
           original: it.original,
-          download: it.download || it.original,
-          likes: 0,
-          liked: false,
           caption: ''
         }));
         setAllPhotos(photos);
       } catch (e) {
-        // Log explícito em DEV para facilitar debug
+        if (controller.signal.aborted || cancelled) return;
         console.error('Erro ao carregar manifest da galeria:', e);
-        if (import.meta.env.DEV) {
-          // Em dev, tenta um fallback simples sem cache-busting
-          try {
-            const res2 = await fetch('/galeria/2025/manifest.json', { signal: controller.signal, cache: 'no-store' as RequestCache });
-            if (res2.ok) {
-              const manifest2: Manifest = await res2.json();
-              const photos2: GalleryPhoto[] = manifest2.items.map((it, idx) => ({
-                id: idx + 1,
-                thumb: it.thumb,
-                original: it.original,
-                download: it.download || it.original,
-                likes: 0,
-                liked: false,
-                caption: ''
-              }));
-              if (!cancelled) setAllPhotos(photos2);
-            }
-          } catch {}
-        }
+        setAllPhotos([]);
+        setLoadError('Não foi possível carregar as fotos agora.');
+      } finally {
+        if (!cancelled) setIsLoading(false);
       }
     }
     load();
@@ -230,22 +241,7 @@ export const GaleriaSection = () => {
       cancelled = true;
       controller.abort();
     };
-  }, []);
-  
-  // Prefetch das imagens vizinhas para transições mais rápidas
-  useEffect(() => {
-    if (!allPhotos.length) return;
-    const nextIdx = (displayedIndex + 1) % allPhotos.length;
-    const prevIdx = (displayedIndex - 1 + allPhotos.length) % allPhotos.length;
-    const preload = (idx: number) => {
-      const url = allPhotos[idx]?.original;
-      if (!url) return;
-      const img = new Image();
-      img.src = url;
-    };
-    preload(nextIdx);
-    preload(prevIdx);
-  }, [displayedIndex, allPhotos]);
+  }, [shouldLoadGallery, loadAttempt]);
   
   // Refs para foco e acessibilidade
   const modalRef = useRef<HTMLDivElement>(null);
@@ -256,7 +252,6 @@ export const GaleriaSection = () => {
   // Refs para medir e adaptar (ResizeObserver) e para swipe
   const imageContainerRef = useRef<HTMLDivElement>(null);
   const activeImageRef = useRef<HTMLImageElement>(null);
-  const overlayImageRef = useRef<HTMLImageElement>(null);
   const overlayRef = useRef<HTMLDivElement>(null);
   const touchStartX = useRef<number | null>(null);
   const touchStartY = useRef<number | null>(null);
@@ -265,61 +260,7 @@ export const GaleriaSection = () => {
   // Derivar fotos da grid a partir do estado unificado (primeiras 6)
   const gridPhotos = allPhotos.slice(0, 6);
 
-  // Preservar posição do scroll ao carregar mais itens no grid do modal
-  const gridScrollStateRef = useRef<{ pending: boolean; top: number; height: number }>({ pending: false, top: 0, height: 0 });
-
-  const recordGridScrollState = () => {
-    const el = gridScrollRef.current;
-    if (!el) return;
-    gridScrollStateRef.current = { pending: true, top: el.scrollTop, height: el.scrollHeight };
-  };
-
-  const restoreGridScrollState = () => {
-    const el = gridScrollRef.current;
-    const st = gridScrollStateRef.current;
-    if (!el || !st.pending) return;
-    const delta = el.scrollHeight - st.height;
-    if (delta > 0) {
-      el.scrollTop = st.top + delta;
-    }
-    gridScrollStateRef.current.pending = false;
-  };
-
-  useEffect(() => {
-    // após aumentar gridCount, restaurar a posição do scroll
-    restoreGridScrollState();
-  }, [gridCount]);
-
-
-  // Função unificada para curtir (funciona tanto na grid quanto no modal)
-  const handleLike = (photoIndex: number, isGridPhoto = false) => {
-    if (isGridPhoto) {
-      // Se for da grid, encontrar o índice correspondente no array completo
-      const actualIndex = photoIndex - 1; // IDs 1-6 para a grid
-      setAllPhotos(prev => prev.map((photo, idx) => 
-        idx === actualIndex 
-          ? { 
-              ...photo, 
-              liked: !photo.liked, 
-              likes: photo.liked ? photo.likes - 1 : photo.likes + 1 
-            }
-          : photo
-      ));
-    } else {
-      // Se for do modal, usar o índice diretamente
-      setAllPhotos(prev => prev.map((photo, idx) => 
-        idx === photoIndex 
-          ? { 
-              ...photo, 
-              liked: !photo.liked, 
-              likes: photo.liked ? photo.likes - 1 : photo.likes + 1 
-            }
-          : photo
-      ));
-    }
-  };
-
-  const startTransitionTo = (nextIdx: number) => {
+  const startTransitionTo = useCallback((nextIdx: number) => {
     if (!allPhotos.length) return;
     if (nextIdx === displayedIndex) return;
     // Usa a imagem atual como overlay durante a transição
@@ -328,29 +269,38 @@ export const GaleriaSection = () => {
     setDisplayedIndex(nextIdx);
     setBaseLoaded(false);
     setFadingOverlay(false);
-  };
+  }, [allPhotos, displayedIndex]);
 
-  const nextImage = () => {
+  const nextImage = useCallback(() => {
     if (!allPhotos.length) return;
     const nextIdx = (displayedIndex + 1) % allPhotos.length;
     startTransitionTo(nextIdx);
-  };
+  }, [allPhotos.length, displayedIndex, startTransitionTo]);
 
-  const prevImage = () => {
+  const prevImage = useCallback(() => {
     if (!allPhotos.length) return;
     const prevIdx = (displayedIndex - 1 + allPhotos.length) % allPhotos.length;
     startTransitionTo(prevIdx);
-  };
+  }, [allPhotos.length, displayedIndex, startTransitionTo]);
 
   const openModal = () => {
+    setGridCount(INITIAL_GRID_COUNT);
     setShowModal(true);
     setViewerOpen(false);
   };
 
-  const closeModal = () => {
-    setShowModal(false);
+  const closeViewer = useCallback(() => {
     setViewerOpen(false);
-  };
+    setPrevIndex(null);
+    setOverlaySrc(null);
+    setBaseLoaded(false);
+    setFadingOverlay(false);
+  }, []);
+
+  const closeModal = useCallback(() => {
+    setShowModal(false);
+    closeViewer();
+  }, [closeViewer]);
 
   const openViewerAt = (idx: number) => {
     // Exibe o thumb imediatamente como overlay enquanto carrega o original
@@ -368,9 +318,6 @@ export const GaleriaSection = () => {
     touchStartX.current = t.clientX;
     touchStartY.current = t.clientY;
     touchStartTime.current = Date.now();
-  };
-  const handleTouchMove = (e: React.TouchEvent) => {
-    // Mantém para futura ampliação (poderia adicionar feedback visual)
   };
   const handleTouchEnd = (e: React.TouchEvent) => {
     if (touchStartX.current === null || touchStartY.current === null) return;
@@ -398,9 +345,10 @@ export const GaleriaSection = () => {
   useEffect(() => {
     if (!showModal) return;
     const container = imageContainerRef.current;
+    const modal = modalRef.current;
     if (!container) return;
 
-    const getViewportHeight = () => (typeof window !== 'undefined' && (window as any).visualViewport?.height) || window.innerHeight;
+    const getViewportHeight = () => window.visualViewport?.height || window.innerHeight;
 
     const updateFromImage = () => {
       const headerH = headerElRef.current?.getBoundingClientRect().height ?? 0;
@@ -413,7 +361,7 @@ export const GaleriaSection = () => {
 
       // Ajusta a largura do card do modal para acompanhar a largura ideal da imagem
       const img = activeImageRef.current;
-      const card = modalRef.current;
+      const card = modal;
       if (img && card && img.naturalWidth && img.naturalHeight) {
         const aspect = img.naturalWidth / img.naturalHeight;
         const idealWidth = Math.min(Math.floor(available * aspect), Math.floor(window.innerWidth - 32));
@@ -427,7 +375,7 @@ export const GaleriaSection = () => {
     if (activeImageRef.current) ro.observe(activeImageRef.current);
 
     // Ouvir mudanças de viewport visual (iOS toolbars, etc.)
-    const vv = (window as any).visualViewport as VisualViewport | undefined;
+    const vv = window.visualViewport;
     const onVVResize = () => updateFromImage();
     vv?.addEventListener?.('resize', onVVResize);
     vv?.addEventListener?.('scroll', onVVResize);
@@ -442,7 +390,7 @@ export const GaleriaSection = () => {
       vv?.removeEventListener?.('scroll', onVVResize);
       window.removeEventListener('resize', updateFromImage);
       if (container) container.style.height = '';
-      if (modalRef.current) modalRef.current.style.width = '';
+      if (modal) modal.style.width = '';
     };
   }, [showModal, viewerOpen, displayedIndex, baseLoaded]);
 
@@ -454,7 +402,7 @@ export const GaleriaSection = () => {
       switch (event.key) {
         case 'Escape':
           if (viewerOpen) {
-            setViewerOpen(false);
+            closeViewer();
           } else {
             closeModal();
           }
@@ -486,7 +434,7 @@ export const GaleriaSection = () => {
       document.removeEventListener('keydown', handleKeyDown);
       clearTimeout(focusTimeout);
     };
-  }, [showModal, viewerOpen, displayedIndex, allPhotos.length]);
+  }, [showModal, viewerOpen, closeModal, closeViewer, nextImage, prevImage]);
 
   // Ao abrir o viewer (lightbox), focar o overlay para captar setas do teclado
   useEffect(() => {
@@ -495,34 +443,6 @@ export const GaleriaSection = () => {
       return () => cancelAnimationFrame(id);
     }
   }, [viewerOpen]);
-
-  const currentPhoto = allPhotos[displayedIndex];
-const isLongCaption = false; // sem metadados longos por enquanto
-const captionRef = useRef<HTMLDivElement>(null);
-const [hasOverflow, setHasOverflow] = useState(false);
-const [isAtBottom, setIsAtBottom] = useState(false);
-const showIndicator = isLongCaption && hasOverflow && !isAtBottom;
-
-useEffect(() => {
-  if (!isLongCaption) {
-    setHasOverflow(false);
-    setIsAtBottom(false);
-    return;
-  }
-  const el = captionRef.current;
-  if (!el) return;
-  const check = () => {
-    const overflow = el.scrollHeight > el.clientHeight + 1;
-    setHasOverflow(overflow);
-    setIsAtBottom(el.scrollTop + el.clientHeight >= el.scrollHeight - 2);
-  };
-  check();
-  const ro = new ResizeObserver(() => check());
-  ro.observe(el);
-  return () => {
-    ro.disconnect();
-  };
-}, [isLongCaption, displayedIndex, showModal]);
 
   // Quando a imagem base carregar, inicia fade-out do overlay (imagem anterior)
   useEffect(() => {
@@ -533,129 +453,8 @@ useEffect(() => {
     }
   }, [prevIndex, baseLoaded]);
 
-  // Grid incremental: observar sentinela e aumentar contagem
-  useEffect(() => {
-    if (!showModal) return;
-    const sentinel = gridSentinelRef.current;
-    const rootEl = gridScrollRef.current; // observar dentro do container rolável
-    if (!sentinel || !rootEl) return;
-    const step = 60;
-    const obs = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            // registrar posição antes de expandir
-            recordGridScrollState();
-            setGridCount((c) => Math.min((allPhotos?.length || 0), c + step));
-          }
-        });
-      },
-      { root: rootEl, rootMargin: '0px 0px 300px 0px', threshold: 0.01 }
-    );
-    obs.observe(sentinel);
-    return () => obs.disconnect();
-  }, [showModal, allPhotos?.length]);
-
-const handleCaptionScroll = () => {
-  const el = captionRef.current;
-  if (!el) return;
-  setIsAtBottom(el.scrollTop + el.clientHeight >= el.scrollHeight - 2);
-};
-
-  const Modal = ({ children, title }: { children: ReactNode; title: string }) => {
-    // Travar scroll do body enquanto o modal estiver aberto
-    useEffect(() => {
-      const original = document.body.style.overflow;
-      document.body.style.overflow = 'hidden';
-      return () => {
-        document.body.style.overflow = original;
-      };
-    }, []);
-
-    const content = (
-      <>
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          className="fixed inset-0 z-50 flex items-center justify-center p-4 transform-gpu will-change-transform [backface-visibility:hidden]"
-        >
-          {/* Overlay animado com blur */}
-          <motion.div
-            className="absolute inset-0 bg-black/70"
-            aria-hidden="true"
-            onClick={closeModal}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.3, ease: 'easeOut' }}
-          />
-
-          {/* Card com borda gradiente e glassmorphism */
-          // Ajustado para o cartão se adaptar ao tamanho real da imagem (sem largura forçada)
-          }
-          <motion.div
-            ref={modalRef}
-            role="dialog"
-            aria-modal="true"
-            aria-labelledby="modal-title"
-            className="relative z-10 w-full max-w-[min(1200px,calc(100vw-2rem))] h-[92vh] max-h-[92vh] flex flex-col min-h-0 rounded-2xl"
-            initial={{ opacity: 0, scale: 0.95, rotateX: 8, y: 12 }}
-            animate={{ opacity: 1, scale: 1, rotateX: 0, y: 0 }}
-            exit={{ opacity: 0, scale: 0.98, rotateX: 4, y: -6 }}
-            transition={{ type: 'spring', stiffness: 260, damping: 22 }}
-          >
-            <div className="p-[1px] h-full rounded-2xl bg-gradient-to-r from-[#ff2a2a] via-[#ffbd00] to-[#ff2a2a]">
-              <div className="relative h-full bg-black/70 border border-white/10 rounded-2xl flex flex-col min-h-0">
-                {/* Brilho superior sutil */}
-                <div
-                  className="pointer-events-none absolute inset-x-0 top-0 h-8 bg-gradient-to-b from-white/10 to-transparent rounded-t-2xl"
-                  aria-hidden="true"
-                />
-
-                {/* Header */}
-                <div ref={headerElRef} className="flex items-center justify-between px-4 py-3 border-b border-white/10 flex-shrink-0">
-                  <h2 id="modal-title" className="text-xl md:text-2xl font-bold text-white uppercase tracking-wider">
-                    {title}
-                  </h2>
-                  <div className="flex items-center gap-2">
-                    <button
-                      ref={closeButtonRef}
-                      onClick={(e) => {
-                        e.preventDefault();
-                        e.stopPropagation();
-                        // Se o viewer estiver aberto, fecha apenas o viewer e retorna ao grid
-                        if (viewerOpen) {
-                          setViewerOpen(false);
-                        } else {
-                          // Caso contrário, fecha o modal completo
-                          closeModal();
-                        }
-                      }}
-                      className="p-2 rounded-full bg-white/10 text-white hover:bg-white/20 transition-all duration-300 hover:scale-105 focus:ring-2 focus:ring-white/40 focus:outline-none"
-                      aria-label={viewerOpen ? "Fechar visualização e voltar ao grid" : "Fechar galeria (pressione ESC)"}
-                      type="button"
-                    >
-                      <X className="w-5 h-5" />
-                    </button>
-                  </div>
-                </div>
-
-                {children}
-              </div>
-            </div>
-          </motion.div>
-        </motion.div>
-      </>
-    );
-
-    if (typeof window === 'undefined') return null;
-    if (!portalEl) return null;
-    return createPortal(content, portalEl);
-  };
-
   return (
-    <section id="galeria" aria-labelledby="galeria-title" className="bg-black py-20 px-6">
+    <section ref={sectionRef} id="galeria" aria-labelledby="galeria-title" className="cv-auto-lg bg-black py-20 px-6">
       <div className="max-w-6xl mx-auto py-16 px-4">
         {/* Header */}
         <div className="text-center mb-16">
@@ -675,9 +474,31 @@ const handleCaptionScroll = () => {
               Passe o mouse (desktop) ou toque/arraste (mobile) para navegar
             </p>
             <div className="flex justify-center">
-              <HoverImageGallery 
-                images={(allPhotos.length ? allPhotos.slice(0, 5).map(p => p.original) : muralImages.slice(0, 5))}
-              />
+              {allPhotos.length > 0 ? (
+                <HoverImageGallery images={allPhotos.slice(0, 5).map((photo) => photo.thumb)} />
+              ) : (
+                <div className="flex aspect-square w-[92vw] max-w-[560px] items-center justify-center rounded-lg border border-white/10 bg-white/5 px-6 text-center text-white/70">
+                  {loadError ? (
+                    <div className="space-y-4">
+                      <p>{loadError}</p>
+                      <button
+                        type="button"
+                        onClick={() => {
+                          setShouldLoadGallery(true);
+                          setLoadAttempt((attempt) => attempt + 1);
+                        }}
+                        className="rounded bg-white/10 px-4 py-2 text-sm font-bold uppercase text-white transition-colors hover:bg-white/20 focus:outline-none focus:ring-2 focus:ring-yellow-400/60"
+                      >
+                        Tentar novamente
+                      </button>
+                    </div>
+                  ) : (
+                    <span className={isLoading ? 'animate-pulse' : ''}>
+                      {isLoading ? 'Carregando galeria…' : 'A galeria será carregada ao se aproximar desta seção.'}
+                    </span>
+                  )}
+                </div>
+              )}
             </div>
           </div>
 
@@ -695,8 +516,6 @@ const handleCaptionScroll = () => {
                 {/* Photo */}
                 <img 
                   src={photo.thumb}
-                  srcSet={`${photo.thumb} 320w, ${photo.thumb} 480w, ${photo.original} 800w`}
-                  sizes="(max-width: 640px) 50vw, (max-width: 768px) 33vw, 33vw"
                   alt={photo.caption || `Foto ${photo.id}`}
                   className="w-full h-auto object-cover aspect-square"
                   loading="lazy"
@@ -709,44 +528,51 @@ const handleCaptionScroll = () => {
           </div>
 
           {/* Ver Mais Button */}
-          <div className="text-center mt-12">
-            <button
-              onClick={openModal}
-              className="bg-[#ff2a2a] text-[#f0f0f0] px-6 py-3 rounded-lg uppercase font-bold border border-white/10 hover:bg-[#e02121] transition-all hover:scale-105 focus:ring-2 focus:ring-white/30 focus:outline-none flex items-center gap-2 mx-auto"
-              aria-label="Abrir galeria completa com todas as fotos"
-            >
-              <Camera className="w-5 h-5" />
-              VER MAIS FOTOS
-            </button>
-          </div>
+          {allPhotos.length > 0 && (
+            <div className="text-center mt-12">
+              <button
+                type="button"
+                onClick={openModal}
+                className="bg-[#ff2a2a] text-[#f0f0f0] px-6 py-3 rounded-lg uppercase font-bold border border-white/10 hover:bg-[#e02121] transition-all hover:scale-105 focus:ring-2 focus:ring-white/30 focus:outline-none flex items-center gap-2 mx-auto"
+                aria-label="Abrir galeria completa com todas as fotos"
+              >
+                <Camera className="w-5 h-5" />
+                VER MAIS FOTOS
+              </button>
+            </div>
+          )}
 
           {/* Modal do Carrossel */}
           <AnimatePresence initial={false} mode="wait">
             {showModal && (
-              <Modal title="Galeria Completa">
+              <GalleryModal
+                title="Galeria Completa"
+                portalEl={portalEl}
+                modalRef={modalRef}
+                headerRef={headerElRef}
+                closeButtonRef={closeButtonRef}
+                closeLabel={viewerOpen ? 'Fechar visualização e voltar ao grid' : 'Fechar galeria (pressione ESC)'}
+                onBackdropClose={closeModal}
+                onCloseButton={() => {
+                  if (viewerOpen) {
+                    closeViewer();
+                  } else {
+                    closeModal();
+                  }
+                }}
+              >
                 <div className="relative flex flex-col flex-1 min-h-0">
                   {/* GRID de thumbs rolável */}
-                  <div ref={gridScrollRef} data-testid="gallery-grid-scroll" className="flex-1 min-h-0 overflow-y-auto overscroll-y-contain px-3 pt-3 pb-4 transform-gpu will-change-transform [backface-visibility:hidden] [contain:paint]" style={{ WebkitOverflowScrolling: 'touch', touchAction: 'pan-y' }}>
+                  <div data-testid="gallery-grid-scroll" className="flex-1 min-h-0 overflow-y-auto overscroll-y-contain px-3 pt-3 pb-4 [contain:paint]" style={{ WebkitOverflowScrolling: 'touch', touchAction: 'pan-y' }}>
                     {allPhotos.length === 0 ? (
                       <div className="text-center text-white/70 py-10">Carregando fotos…</div>
                     ) : (
-                      <motion.ul
+                      <ul
                         role="list"
                         className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-3"
-                        layout
                       >
-                        {allPhotos.slice(0, gridCount).map((p, idx) => {
-                          const prevCount = prevGridCountRef.current ?? 0;
-                          const isNew = idx >= prevCount;
-                          const delayIndex = Math.max(0, idx - prevCount);
-                          return (
-                            <motion.li
-                              key={p.original}
-                              layout
-                              initial={isNew ? { opacity: 0, y: 6, scale: 0.99 } : false}
-                              animate={{ opacity: 1, y: 0, scale: 1 }}
-                              transition={{ duration: 0.2, ease: 'easeOut', delay: isNew ? Math.min(delayIndex, 8) * 0.01 : 0 }}
-                            >
+                        {allPhotos.slice(0, gridCount).map((p, idx) => (
+                            <li key={p.original}>
                               <button
                                 type="button"
                                 onClick={() => openViewerAt(idx)}
@@ -763,24 +589,20 @@ const handleCaptionScroll = () => {
                                   <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors" />
                                 </div>
                               </button>
-                            </motion.li>
-                          );
-                        })}
-                      </motion.ul>
+                            </li>
+                        ))}
+                      </ul>
                     )}
                     {allPhotos.length > gridCount && (
-                      <>
-                        <div ref={gridSentinelRef} className="h-8 w-full" aria-hidden="true" />
-                        <div className="pt-2 flex justify-center">
-                          <button
-                            type="button"
-                            className="px-4 py-2 text-sm rounded bg-white/10 text-white hover:bg-white/20 transition"
-                            onClick={() => { recordGridScrollState(); setGridCount((c) => Math.min((allPhotos?.length || 0), c + 60)); }}
-                          >
-                            Carregar mais
-                          </button>
-                        </div>
-                      </>
+                      <div className="pt-4 flex justify-center">
+                        <button
+                          type="button"
+                          className="px-4 py-2 text-sm rounded bg-white/10 text-white hover:bg-white/20 transition-colors focus:outline-none focus:ring-2 focus:ring-yellow-400/60"
+                          onClick={() => setGridCount((count) => Math.min(allPhotos.length, count + GRID_PAGE_SIZE))}
+                        >
+                          Carregar mais 12
+                        </button>
+                      </div>
                     )}
                   </div>
 
@@ -789,11 +611,6 @@ const handleCaptionScroll = () => {
                     <div
                       ref={overlayRef}
                       className="absolute inset-0 z-20 bg-black/60"
-                      onKeyDown={(e) => {
-                        if (!viewerOpen) return;
-                        if (e.key === 'ArrowLeft') { e.preventDefault(); prevImage(); }
-                        if (e.key === 'ArrowRight') { e.preventDefault(); nextImage(); }
-                      }}
                       onMouseDown={() => overlayRef.current?.focus()}
                       onClick={() => overlayRef.current?.focus()}
                       tabIndex={0}
@@ -801,9 +618,8 @@ const handleCaptionScroll = () => {
                       <div className="absolute inset-0 flex flex-col">
                         <div
                           ref={imageContainerRef}
-                          className="relative flex items-center justify-center w-full flex-1 px-2 md:px-4 transform-gpu will-change-transform [backface-visibility:hidden]"
+                          className="relative flex items-center justify-center w-full flex-1 px-2 md:px-4"
                           onTouchStart={handleTouchStart}
-                          onTouchMove={handleTouchMove}
                           onTouchEnd={handleTouchEnd}
                         >
                           <div className="absolute top-3 left-1/2 -translate-x-1/2 bg-black/80 text-white px-3 py-1 rounded-full text-xs md:text-sm font-medium shadow-md z-10">
@@ -824,7 +640,8 @@ const handleCaptionScroll = () => {
                             ref={activeImageRef}
                             src={allPhotos[displayedIndex]?.original}
                             alt={allPhotos[displayedIndex]?.caption || `Foto ${displayedIndex + 1}`}
-                            className="w-auto h-auto max-h-full max-w-full object-contain shadow-2xl select-none transform-gpu [backface-visibility:hidden] will-change-transform"
+                            className="w-auto h-auto max-h-full max-w-full object-contain shadow-2xl select-none"
+                            decoding="async"
                             onLoad={() => setBaseLoaded(true)}
                             onError={(e) => { (e.currentTarget as HTMLImageElement).src = '/placeholder.svg'; }}
                             draggable={false}
@@ -832,14 +649,14 @@ const handleCaptionScroll = () => {
 
                           {prevIndex !== null && (
                             <div
-                              className={`absolute inset-0 grid place-items-center transition-opacity duration-300 ease-in-out pointer-events-none transform-gpu [backface-visibility:hidden] will-change-opacity ${fadingOverlay ? 'opacity-0' : 'opacity-100'}`}
+                              className={`absolute inset-0 grid place-items-center transition-opacity duration-300 ease-in-out pointer-events-none ${fadingOverlay ? 'opacity-0' : 'opacity-100'}`}
                               onTransitionEnd={() => { setPrevIndex(null); setFadingOverlay(false); setOverlaySrc(null); }}
                             >
                               <img
-                                ref={overlayImageRef}
                                 src={overlaySrc || allPhotos[prevIndex]?.original}
                                 alt={allPhotos[prevIndex!]?.caption || `Foto ${prevIndex + 1}`}
-                                className="w-auto h-auto max-h-full max-w-full object-contain shadow-2xl select-none transform-gpu [backface-visibility:hidden] will-change-transform"
+                                className="w-auto h-auto max-h-full max-w-full object-contain shadow-2xl select-none"
+                                decoding="async"
                                 draggable={false}
                               />
                             </div>
@@ -866,7 +683,7 @@ const handleCaptionScroll = () => {
                             <div className="shrink-0 flex items-center gap-2">
                               <button
                                 type="button"
-                                onClick={() => setViewerOpen(false)}
+                                onClick={closeViewer}
                                 className="p-2 rounded-full bg-white/10 text-white hover:bg-white/20 transition-all duration-300 hover:scale-105 focus:ring-2 focus:ring-white/40 focus:outline-none"
                                 aria-label="Fechar visualização"
                               >
@@ -879,7 +696,7 @@ const handleCaptionScroll = () => {
                     </div>
                   )}
                 </div>
-              </Modal>
+              </GalleryModal>
             )}
           </AnimatePresence>
         </div>

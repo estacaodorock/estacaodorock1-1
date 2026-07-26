@@ -6,19 +6,14 @@ interface HoverImageGalleryProps {
 }
 
 export function HoverImageGallery({
-  images = [
-    "https://source.unsplash.com/random/550x550?rock",
-    "https://source.unsplash.com/random/550x550?guitar",
-    "https://source.unsplash.com/random/550x550?concert",
-    "https://source.unsplash.com/random/550x550?crowd",
-    "https://source.unsplash.com/random/550x550?band",
-  ],
+  images = [],
 }: HoverImageGalleryProps) {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [isHovering, setIsHovering] = useState(false);
 
   const getIndexFromPosition = (x: number, width: number) => {
+    if (width <= 0 || images.length === 0) return 0;
     const imageIndex = Math.floor((x / width) * images.length);
     return Math.max(0, Math.min(images.length - 1, imageIndex));
   };
@@ -28,18 +23,17 @@ export function HoverImageGallery({
     const x = e.clientX - rect.left;
     const y = e.clientY - rect.top;
     setMousePosition({ x, y });
-    setCurrentImageIndex(getIndexFromPosition(x, rect.width));
+    const nextIndex = getIndexFromPosition(x, rect.width);
+    setCurrentImageIndex((currentIndex) => currentIndex === nextIndex ? currentIndex : nextIndex);
   };
 
   const handleTouchStart = (e: React.TouchEvent<HTMLDivElement>) => {
-    setIsHovering(true);
     const touch = e.touches[0];
     if (!touch) return;
     const rect = e.currentTarget.getBoundingClientRect();
     const x = touch.clientX - rect.left;
-    const y = touch.clientY - rect.top;
-    setMousePosition({ x, y });
-    setCurrentImageIndex(getIndexFromPosition(x, rect.width));
+    const nextIndex = getIndexFromPosition(x, rect.width);
+    setCurrentImageIndex((currentIndex) => currentIndex === nextIndex ? currentIndex : nextIndex);
   };
 
   const handleTouchMove = (e: React.TouchEvent<HTMLDivElement>) => {
@@ -47,33 +41,31 @@ export function HoverImageGallery({
     if (!touch) return;
     const rect = e.currentTarget.getBoundingClientRect();
     const x = touch.clientX - rect.left;
-    const y = touch.clientY - rect.top;
-    setMousePosition({ x, y });
-    setCurrentImageIndex(getIndexFromPosition(x, rect.width));
-  };
-
-  const handleTouchEnd = () => {
-    setIsHovering(false);
+    const nextIndex = getIndexFromPosition(x, rect.width);
+    setCurrentImageIndex((currentIndex) => currentIndex === nextIndex ? currentIndex : nextIndex);
   };
 
   const handleKeyDown = (e: React.KeyboardEvent<HTMLDivElement>) => {
     if (e.key === "ArrowRight") {
+      e.preventDefault();
       setCurrentImageIndex((i) => Math.min(images.length - 1, i + 1));
     } else if (e.key === "ArrowLeft") {
+      e.preventDefault();
       setCurrentImageIndex((i) => Math.max(0, i - 1));
     }
   };
 
+  if (images.length === 0) return null;
+
   return (
     <div className="relative group">
       <div
-        className="relative w-[92vw] sm:w-[90vw] max-w-[560px] aspect-square overflow-hidden rounded-lg shadow-lg bg-black/40 z-10"
+        className="relative w-[92vw] sm:w-[90vw] max-w-[560px] aspect-square overflow-hidden rounded-lg shadow-lg bg-black/40 z-10 touch-pan-y"
         onMouseMove={handleMouseMove}
         onMouseEnter={() => setIsHovering(true)}
         onMouseLeave={() => setIsHovering(false)}
         onTouchStart={handleTouchStart}
         onTouchMove={handleTouchMove}
-        onTouchEnd={handleTouchEnd}
         role="region"
         aria-label={`Galeria interativa: toque e arraste (mobile) ou mova o mouse (desktop) para navegar por ${images.length} imagens.`}
         tabIndex={0}
@@ -82,8 +74,9 @@ export function HoverImageGallery({
         <img
           src={images[currentImageIndex]}
           alt={`Imagem da galeria ${currentImageIndex + 1} de ${images.length}`}
-          className="w-full h-full object-cover transition-all duration-150 ease-out will-change-transform select-none"
+          className="w-full h-full object-cover select-none"
           loading="lazy"
+          decoding="async"
           draggable={false}
         />
 
